@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#install cmake
+sudo apt-get install cmake
+
 #download embb from github
 wget https://github.com/siemens/embb/releases/download/v1.0.0/embb-1.0.0.tar.gz
 
