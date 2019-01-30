@@ -42,3 +42,5 @@ queue_lockfree_boost
 
 spsc_queue_lockfree_boost
 
+4- SPLASH-2 Barnes
+  including Binary and inputs and code. only one lock is migrated to lock-free C11 atomic. 
