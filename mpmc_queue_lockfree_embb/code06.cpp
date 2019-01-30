@@ -25,10 +25,12 @@ void consume()
 int main()
 {
 	std::thread t1{produce};
+	std::thread t1a{produce};
 	std::thread t2{consume};
 	std::thread t3{consume};
+	t3.join();
 	t1.join();
 	t2.join();
-	t3.join();
+	t1a.join();
 	std::cout << sum << '\n';
 }
