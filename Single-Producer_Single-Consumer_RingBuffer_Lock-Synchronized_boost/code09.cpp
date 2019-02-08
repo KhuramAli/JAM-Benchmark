@@ -30,8 +30,10 @@ void consumer(void)
 {
 	while (!done) {
 		myMutex.lock();
-		cb.pop_front();
-		++consumer_count;
+		if(!cb.empty()){
+			cb.pop_front();
+			++consumer_count;
+		}
 		myMutex.unlock();
 	}
 }
