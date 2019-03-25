@@ -2,7 +2,7 @@ CXX=g++
 CPPFLAGS=-O3 -Wall -latomic -std=c++11 
 SOURCES=isLockfree.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
-EXECUTABLE=isLockfree
+EXECUTABLE=isLockfree.out
 
 all: $(SOURCES) $(EXECUTABLE)
 	

@@ -3,7 +3,7 @@ CFLAGS=-c -Wall
 LDFLAGS=-pthread
 SOURCES=code01.c
 OBJECTS=$(SOURCES:.cpp=.o)
-EXECUTABLE=code01
+EXECUTABLE=code01.out
 
 all: $(SOURCES) $(EXECUTABLE)
 	

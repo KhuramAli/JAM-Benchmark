@@ -3,7 +3,7 @@ CPPFLAGS=-O3 -Wall --std=c++11
 LDLIBS=-pthread
 SOURCES=code11.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
-EXECUTABLE=code11
+EXECUTABLE=code11.out
 
 all: $(SOURCES) $(EXECUTABLE)
 	

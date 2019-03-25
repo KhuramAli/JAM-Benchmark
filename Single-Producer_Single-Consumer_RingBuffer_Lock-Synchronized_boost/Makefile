@@ -3,7 +3,7 @@ CPPFLAGS=-O3 -Wall --std=c++11
 LDLIBS=-pthread -lboost_system -lboost_thread
 SOURCES=code09.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
-EXECUTABLE=code09
+EXECUTABLE=code09.out
 
 all: $(SOURCES) $(EXECUTABLE)
 	
