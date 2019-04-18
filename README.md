@@ -8,7 +8,7 @@ It also includes an attempt to migrate a program from SPLASH-2 Benchmark to lock
 ### Explaination of Name
 The name of the Benchmark reflects the three members for the effort and motivation. 
 
-Motivation and idea: 
+#### Motivation and idea: 
 
 Jasmin Jahić
 
@@ -19,14 +19,14 @@ Fraunhofer IESE
 Kaiserslautern, Germany
 
 
-Development: 
+#### Development: 
 
 Khuram Ali 
 
 khuram.ali@aim.com
 
 
-Testing:
+#### Testing:
 
 Milad Chatrangoon
 
