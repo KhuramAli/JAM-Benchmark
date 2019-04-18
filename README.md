@@ -2,7 +2,7 @@
 # JAM Benchmark
 
 ## Introduction
-This benchmark is an effort to compare lock-synchronized and lock-free softwares. It has simple enough examples using plain C11 and C++17 as well as used some availble lock-free data structure libraries, like Boost and embb. https://github.com/siemens/embb
+This benchmark is an effort to compare lock-synchronized and lock-free softwares. It has simple enough examples using plain C11 and C++17 as well as used some available lock-free data structure libraries, like Boost and embb. https://github.com/siemens/embb
 It also includes an attempt to migrate a program from SPLASH-2 Benchmark to lock-free. 
 
 ### Explaination of Name
