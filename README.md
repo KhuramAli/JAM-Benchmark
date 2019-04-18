@@ -1,4 +1,27 @@
 
+JAM Benchmark
+
+This benchmark is an effort to compare lock-synchronized and lock-free softwares. It has simple enough examples using plain C11 and C++17 as well as used some availble lock-free data structure libraries, like Boost and embb. https://github.com/siemens/embb
+It also includes an attempt to migrate a program from SPLASH-2 Benchmark to lock-free. 
+
+The name of the Benchmark reflects the three members for the effort and motivation. 
+Motivation and idea: 
+Jasmin Jahić
+jasmin.jahic@iese.fraunhofer.com
+Fraunhofer IESE
+Kaiserslautern, Germany
+
+Development: 
+Khuram Ali
+khuram.ali@aim.com
+
+Testing:
+Milad Chatrangoon
+chatrang@rhrk.uni-kl.de
+Technical University of Kaiserslautern
+Kaiserslautern, Germany
+
+
 Please run shell script ./buildall.sh to build all examples with all their dependencies. 
 It will also install boost and embb libraries. 
 You can run make and make clean in the root directory also.
