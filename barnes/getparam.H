@@ -1,3 +1,6 @@
+#line 228 "/home/ali/splash2/splash2_lockfree/splash2/codes/null_macros/c.m4.null"
+
+#line 1 "getparam.H"
 #ifndef _GETPARAM_H_
 #define _GETPARAM_H_
 

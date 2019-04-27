@@ -1,3 +1,6 @@
+#line 228 "/home/ali/splash2/splash2_lockfree/splash2/codes/null_macros/c.m4.null"
+
+#line 1 "grav.C"
 /*************************************************************************/
 /*                                                                       */
 /*  Copyright (c) 1994 Stanford University                               */
@@ -18,7 +21,19 @@
  * GRAV.C:
  */
 
-EXTERN_ENV
+
+#line 21
+#include <pthread.h>
+#line 21
+#include <sys/time.h>
+#line 21
+#include <unistd.h>
+#line 21
+#include <stdlib.h>
+#line 21
+extern pthread_t PThreadTable[];
+#line 21
+
 #define global extern
 
 #include "stdinc.h"

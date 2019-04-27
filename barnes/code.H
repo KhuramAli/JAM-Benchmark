@@ -1,3 +1,6 @@
+#line 228 "/home/ali/splash2/splash2_lockfree/splash2/codes/null_macros/c.m4.null"
+
+#line 1 "code.H"
 /*************************************************************************/
 /*                                                                       */
 /*  Copyright (c) 1994 Stanford University                               */
@@ -50,7 +53,7 @@ global long maxmyleaf;		/* max num. of leaves to be allocated */
 global bodyptr bodytab; 	/* array size is exactly nbody bodies */
 
 global struct CellLockType {
-    ALOCKDEC(CL,MAXLOCK)        /* locks on the cells*/
+    pthread_mutex_t CL[MAXLOCK];        /* locks on the cells*/
 } *CellLock;
 
 struct GlobalMemory  {	/* all this info is for the whole system */
@@ -68,11 +71,25 @@ struct GlobalMemory  {	/* all this info is for the whole system */
     vector min;        /* temporary lower-left corner of the box  */
     vector max;        /* temporary upper right corner of the box */
     real rsize;        /* side-length of integer coordinate box   */
-    BARDEC(Barrier)   /* barrier at the beginning of stepsystem  */
-    LOCKDEC(CountLock) /* Lock on the shared variables            */
-    LOCKDEC(NcellLock) /* Lock on the counter of array of cells for loadtree */
-    LOCKDEC(NleafLock)/* Lock on the counter of array of leaves for loadtree */
-    LOCKDEC(io_lock)
+    
+#line 71
+struct {
+#line 71
+	pthread_mutex_t	mutex;
+#line 71
+	pthread_cond_t	cv;
+#line 71
+	unsigned long	counter;
+#line 71
+	unsigned long	cycle;
+#line 71
+} (Barrier);
+#line 71
+   /* barrier at the beginning of stepsystem  */
+    pthread_mutex_t (CountLock); /* Lock on the shared variables            */
+    pthread_mutex_t (NcellLock); /* Lock on the counter of array of cells for loadtree */
+    pthread_mutex_t (NleafLock);/* Lock on the counter of array of leaves for loadtree */
+    pthread_mutex_t (io_lock);
     unsigned long createstart,createend,computestart,computeend;
     unsigned long trackstart, trackend, tracktime;
     unsigned long partitionstart, partitionend, partitiontime;

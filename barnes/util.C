@@ -1,3 +1,6 @@
+#line 228 "/home/ali/splash2/splash2_lockfree/splash2/codes/null_macros/c.m4.null"
+
+#line 1 "util.C"
 /*************************************************************************/
 /*                                                                       */
 /*  Copyright (c) 1994 Stanford University                               */
@@ -14,7 +17,19 @@
 /*                                                                       */
 /*************************************************************************/
 
-EXTERN_ENV
+
+#line 17
+#include <pthread.h>
+#line 17
+#include <sys/time.h>
+#line 17
+#include <unistd.h>
+#line 17
+#include <stdlib.h>
+#line 17
+extern pthread_t PThreadTable[];
+#line 17
+
 #define global extern
 
 #include "stdinc.h"

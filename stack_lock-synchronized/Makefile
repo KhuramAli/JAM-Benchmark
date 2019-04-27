@@ -1,6 +1,6 @@
 CXX=g++
 CPPFLAGS=-O3 -Wall --std=c++11
-LDLIBS=-lembb_dataflow_cpp -lpthread
+LDLIBS= -lpthread
 SOURCES=code05.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=code05.out
