@@ -6,7 +6,7 @@
 #include <stack>
 #include <iostream>
 
-std::stack<int> stack(100); // create
+std::stack<int> stack; // create
 int sum = 0;
 std::mutex mtx;
 

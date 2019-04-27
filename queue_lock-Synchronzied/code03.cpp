@@ -5,14 +5,14 @@
 #include <mutex>
 #include <iostream>
 
-std::queue<int> q{10000};
+std::queue<int> q;
 int sum = 0;
 std::mutex mtx;
 
 void produce()
 {
 	for (int i = 1; i <= 10000; ++i){
-		std::lock_gaurd<std::mutex> lock(mtx);
+		std::lock_guard<std::mutex> lock(mtx);
 		q.push(i);
 	}
 }
@@ -20,7 +20,7 @@ void produce()
 void consume()
 {
 	while (!q.empty()){
-		std::lock_gaurd<std::mutex> lock(mtx);
+		std::lock_guard<std::mutex> lock(mtx);
 		sum += q.front();
 		q.pop();
 	}
