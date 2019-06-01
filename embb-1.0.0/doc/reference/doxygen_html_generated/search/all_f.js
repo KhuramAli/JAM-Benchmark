@@ -1,0 +1,11 @@
+var searchData=
+[
+  ['pools',['Pools',['../group__CPP__CONTAINERS__POOLS.html',1,'']]],
+  ['parallelprocess',['ParallelProcess',['../classembb_1_1dataflow_1_1Network_1_1ParallelProcess.html',1,'embb::dataflow::Network']]],
+  ['parallelprocess',['ParallelProcess',['../classembb_1_1dataflow_1_1Network_1_1ParallelProcess.html#abe4967055f2b32b9f641dc26d1f2ae50',1,'embb::dataflow::Network::ParallelProcess::ParallelProcess(Network &amp;network, FunctionType function)'],['../classembb_1_1dataflow_1_1Network_1_1ParallelProcess.html#ac310156e716d0d384aef46a4442b8379',1,'embb::dataflow::Network::ParallelProcess::ParallelProcess(Network &amp;network, embb::mtapi::Job job)'],['../classembb_1_1dataflow_1_1Network_1_1ParallelProcess.html#afb496a9577ac5b5d742ff413c5dd803a',1,'embb::dataflow::Network::ParallelProcess::ParallelProcess(Network &amp;network, FunctionType function, embb::mtapi::ExecutionPolicy const &amp;policy)'],['../classembb_1_1dataflow_1_1Network_1_1ParallelProcess.html#a9c0f0b4ac2d192a0bc3d787f3bd01a3a',1,'embb::dataflow::Network::ParallelProcess::ParallelProcess(Network &amp;network, embb::mtapi::Job job, embb::mtapi::ExecutionPolicy const &amp;policy)']]],
+  ['placeholder',['Placeholder',['../classembb_1_1base_1_1Placeholder.html',1,'embb::base']]],
+  ['pointer',['pointer',['../classembb_1_1base_1_1Allocator.html#a509bb033f52f7644d2fd69d2433229bf',1,'embb::base::Allocator::pointer()'],['../classembb_1_1base_1_1AllocatorCacheAligned.html#aebb7b99f8ec49b1f217effbecdee276f',1,'embb::base::AllocatorCacheAligned::pointer()']]],
+  ['priority',['priority',['../structmtapi__worker__priority__entry__struct.html#a58a4f41d401daaff39d2f60ce2c0dd51',1,'mtapi_worker_priority_entry_struct::priority()'],['../structmtapi__task__attributes__struct.html#a1b142c5bdf1027af4fa6364465b0ced0',1,'mtapi_task_attributes_struct::priority()'],['../structmtapi__queue__attributes__struct.html#ac1d60be6cbbb1057f89c27b64cbe5610',1,'mtapi_queue_attributes_struct::priority()']]],
+  ['problem_5fsize',['problem_size',['../structmtapi__task__attributes__struct.html#a6ded00fea3f3ac54683d5b77a8a7018a',1,'mtapi_task_attributes_struct']]],
+  ['problem_5fsize_5ffunc',['problem_size_func',['../structmtapi__ext__job__attributes__struct.html#ad2d497da0a8a3e30401789f6bf47db4a',1,'mtapi_ext_job_attributes_struct']]]
+];

@@ -1,0 +1,51 @@
+Determining if files pthread_np.h exist failed with the following output:
+Change Dir: /home/ali/git/JAM-Benchmark/embb-1.0.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_cd50d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_cd50d.dir/build.make CMakeFiles/cmTC_cd50d.dir/build
+make[1]: Entering directory '/home/ali/git/JAM-Benchmark/embb-1.0.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cd50d.dir/CheckIncludeFiles.c.o
+/usr/bin/cc   -pthread -std=c99 -Wall -Wextra    -o CMakeFiles/cmTC_cd50d.dir/CheckIncludeFiles.c.o   -c /home/ali/git/JAM-Benchmark/embb-1.0.0/build/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+/home/ali/git/JAM-Benchmark/embb-1.0.0/build/CMakeFiles/CMakeTmp/CheckIncludeFiles.c:2:10: fatal error: pthread_np.h: No such file or directory
+    2 | #include <pthread_np.h>
+      |          ^~~~~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_cd50d.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_cd50d.dir/CheckIncludeFiles.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_cd50d.dir/CheckIncludeFiles.c.o] Error 1
+make[1]: Leaving directory '/home/ali/git/JAM-Benchmark/embb-1.0.0/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_cd50d/fast' failed
+make: *** [cmTC_cd50d/fast] Error 2
+
+Source:
+/* */
+#include <pthread_np.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/param.h;sys/cpuset.h exist failed with the following output:
+Change Dir: /home/ali/git/JAM-Benchmark/embb-1.0.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5bbee/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5bbee.dir/build.make CMakeFiles/cmTC_5bbee.dir/build
+make[1]: Entering directory '/home/ali/git/JAM-Benchmark/embb-1.0.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5bbee.dir/CheckIncludeFiles.c.o
+/usr/bin/cc   -pthread -std=c99 -Wall -Wextra    -o CMakeFiles/cmTC_5bbee.dir/CheckIncludeFiles.c.o   -c /home/ali/git/JAM-Benchmark/embb-1.0.0/build/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+/home/ali/git/JAM-Benchmark/embb-1.0.0/build/CMakeFiles/CMakeTmp/CheckIncludeFiles.c:3:10: fatal error: sys/cpuset.h: No such file or directory
+    3 | #include <sys/cpuset.h>
+      |          ^~~~~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_5bbee.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_5bbee.dir/CheckIncludeFiles.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_5bbee.dir/CheckIncludeFiles.c.o] Error 1
+make[1]: Leaving directory '/home/ali/git/JAM-Benchmark/embb-1.0.0/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_5bbee/fast' failed
+make: *** [cmTC_5bbee/fast] Error 2
+
+Source:
+/* */
+#include <sys/param.h>
+#include <sys/cpuset.h>
+
+
+int main(void){return 0;}
+

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libembb_algorithms_cpp.a  CMakeFiles/embb_algorithms_cpp.dir/src/dummy.cc.o
+/usr/bin/ranlib libembb_algorithms_cpp.a
