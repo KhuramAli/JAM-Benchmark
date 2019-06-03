@@ -42,6 +42,17 @@ Please run shell script ./buildall.sh to build all examples with all their depen
 It will also install boost and embb libraries. 
 You can run make and make clean in the root directory also.
 
+## Performance measurement
+A Script is there which can run all the programs 1000 times based on following criteria, 
+* A Linux tool MultiTime is used to run the programs.
+* A random delay is introduced between each run.
+* A delay of 2 seconds is introduced after complition of each 1000 run as calming period.
+* A description of hardware/software platform is entered as header of reslut file
+* result file named "test.txt" is stored in each program's folder.
+
+Certainly depanding on hardware the measurement tests can take quite long time to complete. 
+
+
 There are three catagories of the examples, 
 
 ### 1- Same program with lock-synchronized and lock-free,
