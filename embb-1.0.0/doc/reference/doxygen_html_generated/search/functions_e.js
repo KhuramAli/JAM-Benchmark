@@ -1,4 +1,0 @@
-var searchData=
-[
-  ['parallelprocess',['ParallelProcess',['../classembb_1_1dataflow_1_1Network_1_1ParallelProcess.html#abe4967055f2b32b9f641dc26d1f2ae50',1,'embb::dataflow::Network::ParallelProcess::ParallelProcess(Network &amp;network, FunctionType function)'],['../classembb_1_1dataflow_1_1Network_1_1ParallelProcess.html#ac310156e716d0d384aef46a4442b8379',1,'embb::dataflow::Network::ParallelProcess::ParallelProcess(Network &amp;network, embb::mtapi::Job job)'],['../classembb_1_1dataflow_1_1Network_1_1ParallelProcess.html#afb496a9577ac5b5d742ff413c5dd803a',1,'embb::dataflow::Network::ParallelProcess::ParallelProcess(Network &amp;network, FunctionType function, embb::mtapi::ExecutionPolicy const &amp;policy)'],['../classembb_1_1dataflow_1_1Network_1_1ParallelProcess.html#a9c0f0b4ac2d192a0bc3d787f3bd01a3a',1,'embb::dataflow::Network::ParallelProcess::ParallelProcess(Network &amp;network, embb::mtapi::Job job, embb::mtapi::ExecutionPolicy const &amp;policy)']]]
-];

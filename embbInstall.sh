@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd .. 
 #download embb from github
 wget https://github.com/siemens/embb/releases/download/v1.0.0/embb-1.0.0.tar.gz --no-check-certificate
 
@@ -25,3 +26,5 @@ binaries/run_tests.sh
 
 #install
 sudo cmake --build . --target install
+
+sudo chown -R $USER:$USER ../git

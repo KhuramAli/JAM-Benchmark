@@ -1,2 +1,0 @@
-/usr/bin/ar qc libembb_mtapi_network_c.a  CMakeFiles/embb_mtapi_network_c.dir/src/embb_mtapi_network.c.o CMakeFiles/embb_mtapi_network_c.dir/src/embb_mtapi_network_buffer.c.o CMakeFiles/embb_mtapi_network_c.dir/src/embb_mtapi_network_socket.c.o
-/usr/bin/ranlib libembb_mtapi_network_c.a

@@ -1,2 +1,0 @@
-/usr/bin/ar qc libembb_containers_cpp.a  CMakeFiles/embb_containers_cpp.dir/src/dummy.cc.o
-/usr/bin/ranlib libembb_containers_cpp.a

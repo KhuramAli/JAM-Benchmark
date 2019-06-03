@@ -1,1 +1,0 @@
-/usr/bin/c++    -pthread -std=c++03 -Wall -Wextra -DPARTEST_DISABLE_EXCEPTIONS -O3 -DNDEBUG -DNDEBUG  -rdynamic CMakeFiles/partest_test.dir/test/main.cc.o  -o partest_test libpartest.a -lpthread -lrt 

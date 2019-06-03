@@ -1,2 +1,0 @@
-/usr/bin/ar qc libembb_dataflow_cpp.a  CMakeFiles/embb_dataflow_cpp.dir/src/node.cc.o
-/usr/bin/ranlib libembb_dataflow_cpp.a
