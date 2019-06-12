@@ -34,8 +34,13 @@ Starting measurement for running applicaiton for 1000 times.
 
 ##################################
 
-+ multitime -q -n 1000 ./code05.out
-multitime: Error when attempting to run ./code05.out
+
+===> multitime results
+1: -q ./code05.out
+            Mean        Std.Dev.    Min         Median      Max
+real        0.004       0.001       0.002       0.004       0.007       
+user        0.002       0.002       0.000       0.002       0.005       
+sys         0.002       0.002       0.000       0.000       0.007       
 ##################################
 
 

@@ -21,8 +21,10 @@ void consume()
 {
 	while (!q.empty()){
 		std::lock_guard<std::mutex> lock(mtx);
-		sum += q.front();
-		q.pop();
+		if(!q.empty()){
+			sum += q.front();
+			q.pop();
+		}
 	}
 }
 

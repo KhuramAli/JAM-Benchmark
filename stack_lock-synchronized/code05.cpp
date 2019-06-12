@@ -22,8 +22,10 @@ void consume()
 {
 	while (!stack.empty()){
 		std::lock_guard < std::mutex > lock(mtx);
-		sum += stack.top();
-		stack.pop();
+		if(!stack.empty()){
+			sum += stack.top();
+			stack.pop();
+		}
 	}
 }
 
