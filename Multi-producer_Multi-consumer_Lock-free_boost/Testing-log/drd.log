@@ -1,0 +1,354 @@
+==8777== drd, a thread error detector
+==8777== Copyright (C) 2006-2017, and GNU GPL'd, by Bart Van Assche.
+==8777== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==8777== Command: ./code08.out
+==8777== Parent PID: 8776
+==8777== 
+==8777== Thread 3:
+==8777== Conflicting load by thread 3 at 0x23c09c30 size 8
+==8777==    at 0x10940F: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+==8777== Address 0x23c09c30 is at offset 0 from 0x23c09c30. Allocation context:
+==8777==    at 0x4C3359F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x1093D4: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+==8777== Other segment start (thread 2)
+==8777==    at 0x572F881: clone (clone.S:78)
+==8777== Other segment end (thread 2)
+==8777==    at 0x1093D5: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+==8777== 
+==8777== Conflicting load by thread 3 at 0x23c09c30 size 8
+==8777==    at 0x10944D: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+==8777== Address 0x23c09c30 is at offset 0 from 0x23c09c30. Allocation context:
+==8777==    at 0x4C3359F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x1093D4: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+==8777== Other segment start (thread 2)
+==8777==    at 0x572F881: clone (clone.S:78)
+==8777== Other segment end (thread 2)
+==8777==    at 0x1093D5: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+==8777== 
+==8777== Thread 6:
+==8777== Conflicting store by thread 6 at 0x05db1c50 size 8
+==8777==    at 0x1095FF: consumer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+==8777== Address 0x5db1c50 is at offset 0 from 0x5db1c50. Allocation context:
+==8777==    at 0x4C3359F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x1099BD: boost::lockfree::queue<int>::queue(unsigned long) (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x1091EA: _GLOBAL__sub_I_producer_count (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x109D6C: __libc_csu_init (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x562FB27: (below main) (libc-start.c:266)
+==8777== Other segment start (thread 2)
+==8777==    at 0x572F881: clone (clone.S:78)
+==8777== Other segment end (thread 2)
+==8777==    at 0x1093D5: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+==8777== 
+==8777== Conflicting load by thread 6 at 0x05db1bf0 size 8
+==8777==    at 0x10955E: consumer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+==8777== Address 0x5db1bf0 is at offset 0 from 0x5db1bf0. Allocation context:
+==8777==    at 0x4C3359F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x1099BD: boost::lockfree::queue<int>::queue(unsigned long) (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x1091EA: _GLOBAL__sub_I_producer_count (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x109D6C: __libc_csu_init (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x562FB27: (below main) (libc-start.c:266)
+==8777== Other segment start (thread 2)
+==8777==    at 0x572F881: clone (clone.S:78)
+==8777== Other segment end (thread 2)
+==8777==    at 0x1093D5: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+==8777== 
+==8777== Conflicting load by thread 6 at 0x05db1bf0 size 8
+==8777==    at 0x1095F1: consumer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+==8777== Address 0x5db1bf0 is at offset 0 from 0x5db1bf0. Allocation context:
+==8777==    at 0x4C3359F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x1099BD: boost::lockfree::queue<int>::queue(unsigned long) (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x1091EA: _GLOBAL__sub_I_producer_count (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x109D6C: __libc_csu_init (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x562FB27: (below main) (libc-start.c:266)
+==8777== Other segment start (thread 2)
+==8777==    at 0x572F881: clone (clone.S:78)
+==8777== Other segment end (thread 2)
+==8777==    at 0x1093D5: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+==8777== 
+==8777== Thread 3:
+==8777== Conflicting load by thread 3 at 0x06ed6990 size 8
+==8777==    at 0x109391: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+==8777== Address 0x6ed6990 is at offset 0 from 0x6ed6990. Allocation context:
+==8777==    at 0x4C3359F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x1093D4: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+==8777== Other segment start (thread 2)
+==8777==    at 0x572F881: clone (clone.S:78)
+==8777== Other segment end (thread 2)
+==8777==    at 0x1093D5: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+==8777== Other segment start (thread 6)
+==8777==    at 0x572F881: clone (clone.S:78)
+==8777== Other segment end (thread 6)
+==8777==    at 0x109571: consumer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+==8777== 
+==8777== Conflicting store by thread 3 at 0x06ed6998 size 4
+==8777==    at 0x1093E0: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+==8777== Address 0x6ed6998 is at offset 8 from 0x6ed6990. Allocation context:
+==8777==    at 0x4C3359F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x1093D4: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+==8777== Other segment start (thread 2)
+==8777==    at 0x572F881: clone (clone.S:78)
+==8777== Other segment end (thread 2)
+==8777==    at 0x1093D5: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+==8777== 
+==8777== Conflicting load by thread 3 at 0x06ed6990 size 8
+==8777==    at 0x1093E4: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+==8777== Address 0x6ed6990 is at offset 0 from 0x6ed6990. Allocation context:
+==8777==    at 0x4C3359F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x1093D4: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+==8777== Other segment start (thread 2)
+==8777==    at 0x572F881: clone (clone.S:78)
+==8777== Other segment end (thread 2)
+==8777==    at 0x1093D5: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+==8777== Other segment start (thread 6)
+==8777==    at 0x572F881: clone (clone.S:78)
+==8777== Other segment end (thread 6)
+==8777==    at 0x109571: consumer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+==8777== 
+==8777== Conflicting store by thread 3 at 0x06ed6990 size 8
+==8777==    at 0x1093F8: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+==8777== Address 0x6ed6990 is at offset 0 from 0x6ed6990. Allocation context:
+==8777==    at 0x4C3359F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x1093D4: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+==8777== Other segment start (thread 2)
+==8777==    at 0x572F881: clone (clone.S:78)
+==8777== Other segment end (thread 2)
+==8777==    at 0x1093D5: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+==8777== Other segment start (thread 6)
+==8777==    at 0x572F881: clone (clone.S:78)
+==8777== Other segment end (thread 6)
+==8777==    at 0x109571: consumer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+==8777== 
+--8777-- core    : 1,530,925,056/1,530,925,056 max/curr mmap'd, 4/0 unsplit/split sb unmmap'd,  1,122,754,736/1,122,754,736 max/curr,    12590309/1240798224 totalloc-blocks/bytes,    12595558 searches 8 rzB
+--8777-- dinfo   :    20,832,256/   14,950,400 max/curr mmap'd, 1/6 unsplit/split sb unmmap'd,     19,322,096/    7,401,024 max/curr,      575246/  88918720 totalloc-blocks/bytes,      584563 searches 8 rzB
+--8777-- client  : 1,212,153,856/1,212,153,856 max/curr mmap'd, 0/0 unsplit/split sb unmmap'd,    805,381,216/  805,381,216 max/curr,    12582924/ 805381456 totalloc-blocks/bytes,    12582635 searches 8 rzB
+--8777-- demangle:        65,536/       65,536 max/curr mmap'd, 0/0 unsplit/split sb unmmap'd,          2,288/          384 max/curr,         211/     29072 totalloc-blocks/bytes,         210 searches 8 rzB
+--8777-- ttaux   :       196,608/      196,608 max/curr mmap'd, 0/0 unsplit/split sb unmmap'd,        107,648/       71,760 max/curr,         402/    197760 totalloc-blocks/bytes,         401 searches 8 rzB
+--8777-- translate:            fast SP updates identified: 0 (0.0%)
+--8777-- translate:   generic_known SP updates identified: 186 (66.9%)
+--8777-- translate: generic_unknown SP updates identified: 92 (33.1%)
+--8777-- translate: PX: SPonly 0,  UnwRegs 3,123,  AllRegs 0,  AllRegsAllInsns 0
+--8777--     tt/tc: 6,776 tt lookups requiring 6,953 probes
+--8777--     tt/tc: 4,119 fast-cache updates, 5 flushes
+--8777--  transtab: new        3,080 (84,080 -> 756,062; ratio 9.0) [0 scs] avg tce size 245
+--8777--  transtab: dumped     0 (0 -> ??) (sectors recycled 0)
+--8777--  transtab: discarded  15 (589 -> ??)
+--8777-- scheduler: 52,569,444 event checks.
+--8777-- scheduler: 25,182,206 indir transfers, 901 misses (1 in 27949)
+--8777-- scheduler: 521/12,587,661 major/minor sched events.
+--8777--    sanity: 521 cheap, 17 expensive checks.
+--8777--    exectx: 769 lists, 40 contexts (avg 0.05 per list) (avg 6.75 IP per context)
+--8777--    exectx: 18,882,569 searches, 18,882,530 full compares (999 per 1000)
+--8777--    exectx: 0 cmp2, 31,497,849 cmp4, 0 cmpAll
+--8777--  errormgr: 17 supplist searches, 407 comparisons during search
+--8777--  errormgr: 6,299,602 errlist searches, 31,497,849 comparisons during search
+
+host stacktrace:
+==8777==    at 0x580274FA: ??? (in /usr/lib/valgrind/drd-amd64-linux)
+==8777==    by 0x58035E05: ??? (in /usr/lib/valgrind/drd-amd64-linux)
+==8777==    by 0x58035F76: ??? (in /usr/lib/valgrind/drd-amd64-linux)
+==8777==    by 0x58036577: ??? (in /usr/lib/valgrind/drd-amd64-linux)
+==8777==    by 0x580377F0: ??? (in /usr/lib/valgrind/drd-amd64-linux)
+==8777==    by 0x5802459C: ??? (in /usr/lib/valgrind/drd-amd64-linux)
+==8777==    by 0x5801D2B5: ??? (in /usr/lib/valgrind/drd-amd64-linux)
+==8777==    by 0x5807FFB5: ??? (in /usr/lib/valgrind/drd-amd64-linux)
+==8777==    by 0x5808F580: ??? (in /usr/lib/valgrind/drd-amd64-linux)
+==8777==    by 0x5808F86A: ??? (in /usr/lib/valgrind/drd-amd64-linux)
+==8777==    by 0x580BB0CD: ??? (in /usr/lib/valgrind/drd-amd64-linux)
+==8777==    by 0xDEADBEEFDEADBEEE: ???
+==8777==    by 0xDEADBEEFDEADBEEE: ???
+==8777==    by 0xDEADBEEFDEADBEEE: ???
+
+sched status:
+  running_tid=3
+
+Thread 1: status = VgTs_WaitSys (lwpid 8777)
+==8777==    at 0x53FC9F3: futex_wait_cancelable (futex-internal.h:88)
+==8777==    by 0x53FC9F3: __pthread_cond_wait_common (pthread_cond_wait.c:502)
+==8777==    by 0x53FC9F3: pthread_cond_wait@@GLIBC_2.3.2 (pthread_cond_wait.c:655)
+==8777==    by 0x4C3B124: pthread_cond_wait@* (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x4C3B124: pthread_cond_wait@* (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x4C362EA: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x4C36956: pthread_create@* (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x4F0B834: std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x108EFB: main (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+client stack range: [0x1FFEFFE000 0x1FFF000FFF] client SP: 0x1FFEFFF720
+valgrind stack top usage: 10960 of 1048576
+
+Thread 2: status = VgTs_Yielding (lwpid 8779)
+==8777==    at 0x1093D5: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+client stack range: [0x619E000 0x699CFFF] client SP: 0x699CE20
+valgrind stack top usage: 9352 of 1048576
+
+Thread 3: status = VgTs_Runnable (lwpid 8780)
+==8777==    at 0x4C3359F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x1093D4: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+client stack range: [0x1CD9F000 0x1D59DFFF] client SP: 0x1D59DDD0
+valgrind stack top usage: 9352 of 1048576
+
+Thread 4: status = VgTs_Yielding (lwpid 8783)
+==8777==    at 0x4EE1190: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x1093D4: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+client stack range: [0x315A0000 0x31D9EFFF] client SP: 0x31D9EE18
+valgrind stack top usage: 10328 of 1048576
+
+Thread 5: status = VgTs_Yielding (lwpid 8786)
+==8777==    at 0x1093E0: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+client stack range: [0x401A1000 0x4099FFFF] client SP: 0x4099FE20
+valgrind stack top usage: 10328 of 1048576
+
+Thread 6: status = VgTs_Yielding (lwpid 8787)
+==8777==    at 0x109571: consumer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8777==    by 0x4F0B57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8777==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==8777==    by 0x53F66DA: start_thread (pthread_create.c:463)
+==8777==    by 0x572F88E: clone (clone.S:95)
+client stack range: [0x469A2000 0x471A0FFF] client SP: 0x471A0E40
+valgrind stack top usage: 10840 of 1048576
+
+==8777== 
+==8777==     Valgrind's memory management: out of memory:
+==8777==        newSuperblock's request for 201330688 bytes failed.
+==8777==        2,831,958,016 bytes have already been mmap-ed ANONYMOUS.
+==8777==     Valgrind cannot continue.  Sorry.
+==8777== 
+==8777==     There are several possible reasons for this.
+==8777==     - You have some kind of memory limit in place.  Look at the
+==8777==       output of 'ulimit -a'.  Is there a limit on the size of
+==8777==       virtual memory or address space?
+==8777==     - You have run out of swap space.
+==8777==     - Valgrind has a bug.  If you think this is the case or you are
+==8777==     not sure, please let us know and we'll try to fix it.
+==8777==     Please note that programs can take substantially more memory than
+==8777==     normal when running under Valgrind tools, eg. up to twice or
+==8777==     more, depending on the tool.  On a 64-bit machine, Valgrind
+==8777==     should be able to make use of up 32GB memory.  On a 32-bit
+==8777==     machine, Valgrind should be able to use all the memory available
+==8777==     to a single process, up to 4GB if that's how you have your
+==8777==     kernel configured.  Most 32-bit Linux setups allow a maximum of
+==8777==     3GB per process.
+==8777== 
+==8777==     Whatever the reason, Valgrind cannot continue.  Sorry.

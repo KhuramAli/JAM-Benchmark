@@ -1,0 +1,6 @@
+==2403== Helgrind, a thread error detector
+==2403== Copyright (C) 2007-2017, and GNU GPL'd, by OpenWorks LLP et al.
+==2403== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==2403== Command: ./code11.out
+==2403== Parent PID: 2402
+==2403== 

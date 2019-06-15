@@ -1,0 +1,90 @@
+==2246== Helgrind, a thread error detector
+==2246== Copyright (C) 2007-2017, and GNU GPL'd, by OpenWorks LLP et al.
+==2246== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==2246== Command: ./code04.out
+==2246== Parent PID: 2245
+==2246== 
+==2246== ---Thread-Announcement------------------------------------------
+==2246== 
+==2246== Thread #3 was created
+==2246==    at 0x572387E: clone (clone.S:71)
+==2246==    by 0x53EAEC4: create_thread (createthread.c:100)
+==2246==    by 0x53EAEC4: pthread_create@@GLIBC_2.2.5 (pthread_create.c:797)
+==2246==    by 0x4C36A27: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2246==    by 0x4EFF834: std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2246==    by 0x1093F0: std::thread::thread<void (&)()>(void (&)()) (in /home/ubuntu/Downloads/2/Threading-master/spsc_queue_lockfree_boost/code04.out)
+==2246==    by 0x108CFF: main (in /home/ubuntu/Downloads/2/Threading-master/spsc_queue_lockfree_boost/code04.out)
+==2246== 
+==2246== ---Thread-Announcement------------------------------------------
+==2246== 
+==2246== Thread #2 was created
+==2246==    at 0x572387E: clone (clone.S:71)
+==2246==    by 0x53EAEC4: create_thread (createthread.c:100)
+==2246==    by 0x53EAEC4: pthread_create@@GLIBC_2.2.5 (pthread_create.c:797)
+==2246==    by 0x4C36A27: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2246==    by 0x4EFF834: std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2246==    by 0x1093F0: std::thread::thread<void (&)()>(void (&)()) (in /home/ubuntu/Downloads/2/Threading-master/spsc_queue_lockfree_boost/code04.out)
+==2246==    by 0x108CF0: main (in /home/ubuntu/Downloads/2/Threading-master/spsc_queue_lockfree_boost/code04.out)
+==2246== 
+==2246== ----------------------------------------------------------------
+==2246== 
+==2246== Possible data race during read of size 8 at 0x30A160 by thread #3
+==2246== Locks held: none
+==2246==    at 0x109310: consume() (in /home/ubuntu/Downloads/2/Threading-master/spsc_queue_lockfree_boost/code04.out)
+==2246==    by 0x4EFF57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2246==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2246==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==2246==    by 0x572388E: clone (clone.S:95)
+==2246== 
+==2246== This conflicts with a previous write of size 8 by thread #2
+==2246== Locks held: none
+==2246==    at 0x1092D8: produce() (in /home/ubuntu/Downloads/2/Threading-master/spsc_queue_lockfree_boost/code04.out)
+==2246==    by 0x4EFF57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2246==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2246==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==2246==    by 0x572388E: clone (clone.S:95)
+==2246==  Address 0x30a160 is 0 bytes inside data symbol "q"
+==2246== 
+==2246== ----------------------------------------------------------------
+==2246== 
+==2246== Possible data race during read of size 4 at 0x30A1A8 by thread #3
+==2246== Locks held: none
+==2246==    at 0x109323: consume() (in /home/ubuntu/Downloads/2/Threading-master/spsc_queue_lockfree_boost/code04.out)
+==2246==    by 0x4EFF57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2246==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2246==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==2246==    by 0x572388E: clone (clone.S:95)
+==2246== 
+==2246== This conflicts with a previous write of size 4 by thread #2
+==2246== Locks held: none
+==2246==    at 0x1092D6: produce() (in /home/ubuntu/Downloads/2/Threading-master/spsc_queue_lockfree_boost/code04.out)
+==2246==    by 0x4EFF57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2246==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2246==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==2246==    by 0x572388E: clone (clone.S:95)
+==2246==  Address 0x30a1a8 is 72 bytes inside data symbol "q"
+==2246== 
+==2246== ----------------------------------------------------------------
+==2246== 
+==2246== Possible data race during write of size 8 at 0x30A1A0 by thread #3
+==2246== Locks held: none
+==2246==    at 0x109336: consume() (in /home/ubuntu/Downloads/2/Threading-master/spsc_queue_lockfree_boost/code04.out)
+==2246==    by 0x4EFF57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2246==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2246==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==2246==    by 0x572388E: clone (clone.S:95)
+==2246== 
+==2246== This conflicts with a previous read of size 8 by thread #2
+==2246== Locks held: none
+==2246==    at 0x1092C1: produce() (in /home/ubuntu/Downloads/2/Threading-master/spsc_queue_lockfree_boost/code04.out)
+==2246==    by 0x4EFF57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2246==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2246==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==2246==    by 0x572388E: clone (clone.S:95)
+==2246==  Address 0x30a1a0 is 64 bytes inside data symbol "q"
+==2246== 
+==2246== 
+==2246== For counts of detected and suppressed errors, rerun with: -v
+==2246== Use --history-level=approx or =none to gain increased speed, at
+==2246== the cost of reduced accuracy of conflicting-access information
+==2246== ERROR SUMMARY: 102 errors from 3 contexts (suppressed: 0 from 0)

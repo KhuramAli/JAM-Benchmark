@@ -1,0 +1,63 @@
+==8507== Helgrind, a thread error detector
+==8507== Copyright (C) 2007-2017, and GNU GPL'd, by OpenWorks LLP et al.
+==8507== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==8507== Command: ./code02.out
+==8507== Parent PID: 8506
+==8507== 
+==8507== ---Thread-Announcement------------------------------------------
+==8507== 
+==8507== Thread #3 was created
+==8507==    at 0x518287E: clone (clone.S:71)
+==8507==    by 0x4E49EC4: create_thread (createthread.c:100)
+==8507==    by 0x4E49EC4: pthread_create@@GLIBC_2.2.5 (pthread_create.c:797)
+==8507==    by 0x4C36A27: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==8507==    by 0x1087FB: main (in /home/ubuntu/Downloads/2/Threading-master/counter_example_2_pthread/code02.out)
+==8507== 
+==8507== ---Thread-Announcement------------------------------------------
+==8507== 
+==8507== Thread #2 was created
+==8507==    at 0x518287E: clone (clone.S:71)
+==8507==    by 0x4E49EC4: create_thread (createthread.c:100)
+==8507==    by 0x4E49EC4: pthread_create@@GLIBC_2.2.5 (pthread_create.c:797)
+==8507==    by 0x4C36A27: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==8507==    by 0x1087FB: main (in /home/ubuntu/Downloads/2/Threading-master/counter_example_2_pthread/code02.out)
+==8507== 
+==8507== ----------------------------------------------------------------
+==8507== 
+==8507== Possible data race during read of size 4 at 0x309018 by thread #3
+==8507== Locks held: none
+==8507==    at 0x10878F: f (in /home/ubuntu/Downloads/2/Threading-master/counter_example_2_pthread/code02.out)
+==8507==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==8507==    by 0x4E496DA: start_thread (pthread_create.c:463)
+==8507==    by 0x518288E: clone (clone.S:95)
+==8507== 
+==8507== This conflicts with a previous write of size 4 by thread #2
+==8507== Locks held: none
+==8507==    at 0x108798: f (in /home/ubuntu/Downloads/2/Threading-master/counter_example_2_pthread/code02.out)
+==8507==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==8507==    by 0x4E496DA: start_thread (pthread_create.c:463)
+==8507==    by 0x518288E: clone (clone.S:95)
+==8507==  Address 0x309018 is 0 bytes inside data symbol "cnt"
+==8507== 
+==8507== ----------------------------------------------------------------
+==8507== 
+==8507== Possible data race during write of size 4 at 0x309018 by thread #3
+==8507== Locks held: none
+==8507==    at 0x108798: f (in /home/ubuntu/Downloads/2/Threading-master/counter_example_2_pthread/code02.out)
+==8507==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==8507==    by 0x4E496DA: start_thread (pthread_create.c:463)
+==8507==    by 0x518288E: clone (clone.S:95)
+==8507== 
+==8507== This conflicts with a previous write of size 4 by thread #2
+==8507== Locks held: none
+==8507==    at 0x108798: f (in /home/ubuntu/Downloads/2/Threading-master/counter_example_2_pthread/code02.out)
+==8507==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==8507==    by 0x4E496DA: start_thread (pthread_create.c:463)
+==8507==    by 0x518288E: clone (clone.S:95)
+==8507==  Address 0x309018 is 0 bytes inside data symbol "cnt"
+==8507== 
+==8507== 
+==8507== For counts of detected and suppressed errors, rerun with: -v
+==8507== Use --history-level=approx or =none to gain increased speed, at
+==8507== the cost of reduced accuracy of conflicting-access information
+==8507== ERROR SUMMARY: 18 errors from 2 contexts (suppressed: 0 from 0)

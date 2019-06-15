@@ -1,0 +1,46 @@
+==2289== drd, a thread error detector
+==2289== Copyright (C) 2006-2017, and GNU GPL'd, by Bart Van Assche.
+==2289== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==2289== Command: ./code05.out
+==2289== Parent PID: 2288
+==2289== 
+==2289== Thread 3:
+==2289== Conflicting load by thread 3 at 0x05daf540 size 8
+==2289==    at 0x1099A9: consume() (in /home/ubuntu/Downloads/2/Threading-master/stack_lockfree_embb/code05.out)
+==2289==    by 0x512A57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2289==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==2289==    by 0x4E556DA: start_thread (pthread_create.c:463)
+==2289==    by 0x572F88E: clone (clone.S:95)
+==2289== Address 0x5daf540 is at offset 1584 from 0x5daef10. Allocation context:
+==2289==    at 0x4C32F2F: malloc (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==2289==    by 0x10AE08: embb::base::Allocation::Allocate(unsigned long) (in /home/ubuntu/Downloads/2/Threading-master/stack_lockfree_embb/code05.out)
+==2289==    by 0x10AAF6: embb::containers::LockFreeStack<int, embb::containers::LockFreeTreeValuePool<bool, false, embb::base::Allocator<embb::base::Atomic<bool> >, embb::base::Allocator<embb::base::Atomic<int> > > >::LockFreeStack(unsigned long) (in /home/ubuntu/Downloads/2/Threading-master/stack_lockfree_embb/code05.out)
+==2289==    by 0x10970A: _GLOBAL__sub_I_stack (in /home/ubuntu/Downloads/2/Threading-master/stack_lockfree_embb/code05.out)
+==2289==    by 0x10BD8C: __libc_csu_init (in /home/ubuntu/Downloads/2/Threading-master/stack_lockfree_embb/code05.out)
+==2289==    by 0x562FB27: (below main) (libc-start.c:266)
+==2289== Other segment start (thread 2)
+==2289==    (thread finished, call stack no longer available)
+==2289== Other segment end (thread 2)
+==2289==    (thread finished, call stack no longer available)
+==2289== 
+==2289== Conflicting load by thread 3 at 0x05daf548 size 4
+==2289==    at 0x109A2C: consume() (in /home/ubuntu/Downloads/2/Threading-master/stack_lockfree_embb/code05.out)
+==2289==    by 0x512A57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2289==    by 0x4C36413: ??? (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==2289==    by 0x4E556DA: start_thread (pthread_create.c:463)
+==2289==    by 0x572F88E: clone (clone.S:95)
+==2289== Address 0x5daf548 is at offset 1592 from 0x5daef10. Allocation context:
+==2289==    at 0x4C32F2F: malloc (in /usr/lib/valgrind/vgpreload_drd-amd64-linux.so)
+==2289==    by 0x10AE08: embb::base::Allocation::Allocate(unsigned long) (in /home/ubuntu/Downloads/2/Threading-master/stack_lockfree_embb/code05.out)
+==2289==    by 0x10AAF6: embb::containers::LockFreeStack<int, embb::containers::LockFreeTreeValuePool<bool, false, embb::base::Allocator<embb::base::Atomic<bool> >, embb::base::Allocator<embb::base::Atomic<int> > > >::LockFreeStack(unsigned long) (in /home/ubuntu/Downloads/2/Threading-master/stack_lockfree_embb/code05.out)
+==2289==    by 0x10970A: _GLOBAL__sub_I_stack (in /home/ubuntu/Downloads/2/Threading-master/stack_lockfree_embb/code05.out)
+==2289==    by 0x10BD8C: __libc_csu_init (in /home/ubuntu/Downloads/2/Threading-master/stack_lockfree_embb/code05.out)
+==2289==    by 0x562FB27: (below main) (libc-start.c:266)
+==2289== Other segment start (thread 2)
+==2289==    (thread finished, call stack no longer available)
+==2289== Other segment end (thread 2)
+==2289==    (thread finished, call stack no longer available)
+==2289== 
+==2289== 
+==2289== For counts of detected and suppressed errors, rerun with: -v
+==2289== ERROR SUMMARY: 200 errors from 2 contexts (suppressed: 20 from 12)

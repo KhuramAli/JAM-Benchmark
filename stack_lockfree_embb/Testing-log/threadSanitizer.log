@@ -1,0 +1,130 @@
+==================
+WARNING: ThreadSanitizer: data race (pid=2314)
+  Read of size 8 at 0x7b7000000630 by thread T2:
+    #0 embb::containers::LockFreeStack<int, embb::containers::LockFreeTreeValuePool<bool, false, embb::base::Allocator<embb::base::Atomic<bool> >, embb::base::Allocator<embb::base::Atomic<int> > > >::TryPop(int&) /usr/local/include/embb/containers/internal/lock_free_stack-inl.h:141 (code05.out+0x3b02)
+    #1 consume() /home/ubuntu/Downloads/2/Threading-master/stack_lockfree_embb/code05.cpp:21 (code05.out+0x1e47)
+    #2 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code05.out+0x21d9)
+    #3 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code05.out+0x21d9)
+    #4 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code05.out+0x21d9)
+    #5 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code05.out+0x21d9)
+    #6 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code05.out+0x21d9)
+    #7 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x7b7000000630 by thread T1:
+    #0 embb::containers::internal::LockFreeStackNode<int>::LockFreeStackNode(int const&) /usr/local/include/embb/containers/internal/lock_free_stack-inl.h:45 (code05.out+0x1fba)
+    #1 embb::containers::internal::LockFreeStackNode<int>* embb::containers::ObjectPool<embb::containers::internal::LockFreeStackNode<int>, embb::containers::LockFreeTreeValuePool<bool, false, embb::base::Allocator<embb::base::Atomic<bool> >, embb::base::Allocator<embb::base::Atomic<int> > >, embb::base::Allocator<embb::containers::internal::LockFreeStackNode<int> > >::Allocate<int>(int const&) /usr/local/include/embb/containers/internal/object_pool-inl.h:152 (code05.out+0x1fba)
+    #2 embb::containers::LockFreeStack<int, embb::containers::LockFreeTreeValuePool<bool, false, embb::base::Allocator<embb::base::Atomic<bool> >, embb::base::Allocator<embb::base::Atomic<int> > > >::TryPush(int const&) /usr/local/include/embb/containers/internal/lock_free_stack-inl.h:104 (code05.out+0x1fba)
+    #3 produce() /home/ubuntu/Downloads/2/Threading-master/stack_lockfree_embb/code05.cpp:15 (code05.out+0x1fba)
+    #4 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code05.out+0x21d9)
+    #5 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code05.out+0x21d9)
+    #6 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code05.out+0x21d9)
+    #7 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code05.out+0x21d9)
+    #8 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code05.out+0x21d9)
+    #9 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is heap block of size 1856 at 0x7b7000000000 allocated by main thread:
+    #0 malloc <null> (libtsan.so.0+0x2ae13)
+    #1 embb::base::Allocation::Allocate(unsigned long) <null> (code05.out+0x4a78)
+    #2 __static_initialization_and_destruction_0 /home/ubuntu/Downloads/2/Threading-master/stack_lockfree_embb/code05.cpp:9 (code05.out+0x1c44)
+    #3 _GLOBAL__sub_I_stack /home/ubuntu/Downloads/2/Threading-master/stack_lockfree_embb/code05.cpp:35 (code05.out+0x1c44)
+    #4 __libc_csu_init <null> (code05.out+0x59fc)
+
+  Thread T2 (tid=2317, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 main /home/ubuntu/Downloads/2/Threading-master/stack_lockfree_embb/code05.cpp:28 (code05.out+0x1acd)
+
+  Thread T1 (tid=2316, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 main /home/ubuntu/Downloads/2/Threading-master/stack_lockfree_embb/code05.cpp:27 (code05.out+0x1ab9)
+
+SUMMARY: ThreadSanitizer: data race /usr/local/include/embb/containers/internal/lock_free_stack-inl.h:141 in embb::containers::LockFreeStack<int, embb::containers::LockFreeTreeValuePool<bool, false, embb::base::Allocator<embb::base::Atomic<bool> >, embb::base::Allocator<embb::base::Atomic<int> > > >::TryPop(int&)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=2314)
+  Read of size 4 at 0x7b7000000638 by thread T2:
+    #0 embb::containers::LockFreeStack<int, embb::containers::LockFreeTreeValuePool<bool, false, embb::base::Allocator<embb::base::Atomic<bool> >, embb::base::Allocator<embb::base::Atomic<int> > > >::TryPop(int&) /usr/local/include/embb/containers/internal/lock_free_stack-inl.h:152 (code05.out+0x3bcb)
+    #1 consume() /home/ubuntu/Downloads/2/Threading-master/stack_lockfree_embb/code05.cpp:21 (code05.out+0x1e47)
+    #2 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code05.out+0x21d9)
+    #3 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code05.out+0x21d9)
+    #4 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code05.out+0x21d9)
+    #5 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code05.out+0x21d9)
+    #6 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code05.out+0x21d9)
+    #7 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 4 at 0x7b7000000638 by thread T1:
+    #0 embb::containers::internal::LockFreeStackNode<int>::LockFreeStackNode(int const&) /usr/local/include/embb/containers/internal/lock_free_stack-inl.h:45 (code05.out+0x1fca)
+    #1 embb::containers::internal::LockFreeStackNode<int>* embb::containers::ObjectPool<embb::containers::internal::LockFreeStackNode<int>, embb::containers::LockFreeTreeValuePool<bool, false, embb::base::Allocator<embb::base::Atomic<bool> >, embb::base::Allocator<embb::base::Atomic<int> > >, embb::base::Allocator<embb::containers::internal::LockFreeStackNode<int> > >::Allocate<int>(int const&) /usr/local/include/embb/containers/internal/object_pool-inl.h:152 (code05.out+0x1fca)
+    #2 embb::containers::LockFreeStack<int, embb::containers::LockFreeTreeValuePool<bool, false, embb::base::Allocator<embb::base::Atomic<bool> >, embb::base::Allocator<embb::base::Atomic<int> > > >::TryPush(int const&) /usr/local/include/embb/containers/internal/lock_free_stack-inl.h:104 (code05.out+0x1fca)
+    #3 produce() /home/ubuntu/Downloads/2/Threading-master/stack_lockfree_embb/code05.cpp:15 (code05.out+0x1fca)
+    #4 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code05.out+0x21d9)
+    #5 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code05.out+0x21d9)
+    #6 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code05.out+0x21d9)
+    #7 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code05.out+0x21d9)
+    #8 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code05.out+0x21d9)
+    #9 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is heap block of size 1856 at 0x7b7000000000 allocated by main thread:
+    #0 malloc <null> (libtsan.so.0+0x2ae13)
+    #1 embb::base::Allocation::Allocate(unsigned long) <null> (code05.out+0x4a78)
+    #2 __static_initialization_and_destruction_0 /home/ubuntu/Downloads/2/Threading-master/stack_lockfree_embb/code05.cpp:9 (code05.out+0x1c44)
+    #3 _GLOBAL__sub_I_stack /home/ubuntu/Downloads/2/Threading-master/stack_lockfree_embb/code05.cpp:35 (code05.out+0x1c44)
+    #4 __libc_csu_init <null> (code05.out+0x59fc)
+
+  Thread T2 (tid=2317, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 main /home/ubuntu/Downloads/2/Threading-master/stack_lockfree_embb/code05.cpp:28 (code05.out+0x1acd)
+
+  Thread T1 (tid=2316, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 main /home/ubuntu/Downloads/2/Threading-master/stack_lockfree_embb/code05.cpp:27 (code05.out+0x1ab9)
+
+SUMMARY: ThreadSanitizer: data race /usr/local/include/embb/containers/internal/lock_free_stack-inl.h:152 in embb::containers::LockFreeStack<int, embb::containers::LockFreeTreeValuePool<bool, false, embb::base::Allocator<embb::base::Atomic<bool> >, embb::base::Allocator<embb::base::Atomic<int> > > >::TryPop(int&)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=2314)
+  Read of size 4 at 0x7b7000000628 by thread T3:
+    #0 embb::containers::LockFreeStack<int, embb::containers::LockFreeTreeValuePool<bool, false, embb::base::Allocator<embb::base::Atomic<bool> >, embb::base::Allocator<embb::base::Atomic<int> > > >::TryPop(int&) /usr/local/include/embb/containers/internal/lock_free_stack-inl.h:152 (code05.out+0x3bcb)
+    #1 consume() /home/ubuntu/Downloads/2/Threading-master/stack_lockfree_embb/code05.cpp:21 (code05.out+0x1e47)
+    #2 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code05.out+0x21d9)
+    #3 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code05.out+0x21d9)
+    #4 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code05.out+0x21d9)
+    #5 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code05.out+0x21d9)
+    #6 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code05.out+0x21d9)
+    #7 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 4 at 0x7b7000000628 by thread T1:
+    #0 embb::containers::internal::LockFreeStackNode<int>::LockFreeStackNode(int const&) /usr/local/include/embb/containers/internal/lock_free_stack-inl.h:45 (code05.out+0x1fca)
+    #1 embb::containers::internal::LockFreeStackNode<int>* embb::containers::ObjectPool<embb::containers::internal::LockFreeStackNode<int>, embb::containers::LockFreeTreeValuePool<bool, false, embb::base::Allocator<embb::base::Atomic<bool> >, embb::base::Allocator<embb::base::Atomic<int> > >, embb::base::Allocator<embb::containers::internal::LockFreeStackNode<int> > >::Allocate<int>(int const&) /usr/local/include/embb/containers/internal/object_pool-inl.h:152 (code05.out+0x1fca)
+    #2 embb::containers::LockFreeStack<int, embb::containers::LockFreeTreeValuePool<bool, false, embb::base::Allocator<embb::base::Atomic<bool> >, embb::base::Allocator<embb::base::Atomic<int> > > >::TryPush(int const&) /usr/local/include/embb/containers/internal/lock_free_stack-inl.h:104 (code05.out+0x1fca)
+    #3 produce() /home/ubuntu/Downloads/2/Threading-master/stack_lockfree_embb/code05.cpp:15 (code05.out+0x1fca)
+    #4 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code05.out+0x21d9)
+    #5 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code05.out+0x21d9)
+    #6 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code05.out+0x21d9)
+    #7 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code05.out+0x21d9)
+    #8 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code05.out+0x21d9)
+    #9 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is heap block of size 1856 at 0x7b7000000000 allocated by main thread:
+    #0 malloc <null> (libtsan.so.0+0x2ae13)
+    #1 embb::base::Allocation::Allocate(unsigned long) <null> (code05.out+0x4a78)
+    #2 __static_initialization_and_destruction_0 /home/ubuntu/Downloads/2/Threading-master/stack_lockfree_embb/code05.cpp:9 (code05.out+0x1c44)
+    #3 _GLOBAL__sub_I_stack /home/ubuntu/Downloads/2/Threading-master/stack_lockfree_embb/code05.cpp:35 (code05.out+0x1c44)
+    #4 __libc_csu_init <null> (code05.out+0x59fc)
+
+  Thread T3 (tid=2318, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 main /home/ubuntu/Downloads/2/Threading-master/stack_lockfree_embb/code05.cpp:29 (code05.out+0x1ae1)
+
+  Thread T1 (tid=2316, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 main /home/ubuntu/Downloads/2/Threading-master/stack_lockfree_embb/code05.cpp:27 (code05.out+0x1ab9)
+
+SUMMARY: ThreadSanitizer: data race /usr/local/include/embb/containers/internal/lock_free_stack-inl.h:152 in embb::containers::LockFreeStack<int, embb::containers::LockFreeTreeValuePool<bool, false, embb::base::Allocator<embb::base::Atomic<bool> >, embb::base::Allocator<embb::base::Atomic<int> > > >::TryPop(int&)
+==================
+ThreadSanitizer: reported 3 warnings

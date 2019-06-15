@@ -1,0 +1,137 @@
+==2119== Helgrind, a thread error detector
+==2119== Copyright (C) 2007-2017, and GNU GPL'd, by OpenWorks LLP et al.
+==2119== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==2119== Command: ./code03.out
+==2119== Parent PID: 2118
+==2119== 
+==2119== ---Thread-Announcement------------------------------------------
+==2119== 
+==2119== Thread #3 was created
+==2119==    at 0x572387E: clone (clone.S:71)
+==2119==    by 0x53EAEC4: create_thread (createthread.c:100)
+==2119==    by 0x53EAEC4: pthread_create@@GLIBC_2.2.5 (pthread_create.c:797)
+==2119==    by 0x4C36A27: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2119==    by 0x4EFF834: std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2119==    by 0x10A2B0: std::thread::thread<void (&)()>(void (&)()) (in /home/ubuntu/Downloads/2/Threading-master/queue_lockfree_boost/code03.out)
+==2119==    by 0x10947F: main (in /home/ubuntu/Downloads/2/Threading-master/queue_lockfree_boost/code03.out)
+==2119== 
+==2119== ---Thread-Announcement------------------------------------------
+==2119== 
+==2119== Thread #2 was created
+==2119==    at 0x572387E: clone (clone.S:71)
+==2119==    by 0x53EAEC4: create_thread (createthread.c:100)
+==2119==    by 0x53EAEC4: pthread_create@@GLIBC_2.2.5 (pthread_create.c:797)
+==2119==    by 0x4C36A27: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2119==    by 0x4EFF834: std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2119==    by 0x10A2B0: std::thread::thread<void (&)()>(void (&)()) (in /home/ubuntu/Downloads/2/Threading-master/queue_lockfree_boost/code03.out)
+==2119==    by 0x109470: main (in /home/ubuntu/Downloads/2/Threading-master/queue_lockfree_boost/code03.out)
+==2119== 
+==2119== ---Thread-Announcement------------------------------------------
+==2119== 
+==2119== Thread #1 is the program's root thread
+==2119== 
+==2119== ----------------------------------------------------------------
+==2119== 
+==2119== Possible data race during read of size 4 at 0x5E3F084 by thread #3
+==2119== Locks held: none
+==2119==    at 0x10974E: consume() (in /home/ubuntu/Downloads/2/Threading-master/queue_lockfree_boost/code03.out)
+==2119==    by 0x4EFF57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2119==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2119==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==2119==    by 0x572388E: clone (clone.S:95)
+==2119== 
+==2119== This conflicts with a previous write of size 4 by thread #2
+==2119== Locks held: none
+==2119==    at 0x109923: produce() (in /home/ubuntu/Downloads/2/Threading-master/queue_lockfree_boost/code03.out)
+==2119==    by 0x4EFF57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2119==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2119==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==2119==    by 0x572388E: clone (clone.S:95)
+==2119==  Address 0x5e3f084 is 640,004 bytes inside a block of size 640,135 alloc'd
+==2119==    at 0x4C3159F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2119==    by 0x10A68F: boost::lockfree::queue<int, boost::lockfree::fixed_sized<true> >::queue(unsigned long) (in /home/ubuntu/Downloads/2/Threading-master/queue_lockfree_boost/code03.out)
+==2119==    by 0x10957A: _GLOBAL__sub_I_q (in /home/ubuntu/Downloads/2/Threading-master/queue_lockfree_boost/code03.out)
+==2119==    by 0x10A86C: __libc_csu_init (in /home/ubuntu/Downloads/2/Threading-master/queue_lockfree_boost/code03.out)
+==2119==    by 0x5623B27: (below main) (libc-start.c:266)
+==2119==  Block was alloc'd by thread #1
+==2119== 
+==2119== ----------------------------------------------------------------
+==2119== 
+==2119== Possible data race during write of size 2 at 0x5E3F0C0 by thread #3
+==2119== Locks held: none
+==2119==    at 0x1097B5: consume() (in /home/ubuntu/Downloads/2/Threading-master/queue_lockfree_boost/code03.out)
+==2119==    by 0x4EFF57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2119==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2119==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==2119==    by 0x572388E: clone (clone.S:95)
+==2119== 
+==2119== This conflicts with a previous read of size 2 by thread #2
+==2119== Locks held: none
+==2119==    at 0x109981: produce() (in /home/ubuntu/Downloads/2/Threading-master/queue_lockfree_boost/code03.out)
+==2119==    by 0x4EFF57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2119==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2119==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==2119==    by 0x572388E: clone (clone.S:95)
+==2119==  Address 0x5e3f0c0 is 640,064 bytes inside a block of size 640,135 alloc'd
+==2119==    at 0x4C3159F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2119==    by 0x10A68F: boost::lockfree::queue<int, boost::lockfree::fixed_sized<true> >::queue(unsigned long) (in /home/ubuntu/Downloads/2/Threading-master/queue_lockfree_boost/code03.out)
+==2119==    by 0x10957A: _GLOBAL__sub_I_q (in /home/ubuntu/Downloads/2/Threading-master/queue_lockfree_boost/code03.out)
+==2119==    by 0x10A86C: __libc_csu_init (in /home/ubuntu/Downloads/2/Threading-master/queue_lockfree_boost/code03.out)
+==2119==    by 0x5623B27: (below main) (libc-start.c:266)
+==2119==  Block was alloc'd by thread #1
+==2119== 
+==2119== ----------------------------------------------------------------
+==2119== 
+==2119== Possible data race during read of size 2 at 0x5E3F080 by thread #3
+==2119== Locks held: none
+==2119==    at 0x109711: consume() (in /home/ubuntu/Downloads/2/Threading-master/queue_lockfree_boost/code03.out)
+==2119==    by 0x4EFF57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2119==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2119==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==2119==    by 0x572388E: clone (clone.S:95)
+==2119== 
+==2119== This conflicts with a previous write of size 2 by thread #2
+==2119== Locks held: none
+==2119==    at 0x109939: produce() (in /home/ubuntu/Downloads/2/Threading-master/queue_lockfree_boost/code03.out)
+==2119==    by 0x4EFF57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2119==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2119==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==2119==    by 0x572388E: clone (clone.S:95)
+==2119==  Address 0x5e3f080 is 640,000 bytes inside a block of size 640,135 alloc'd
+==2119==    at 0x4C3159F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2119==    by 0x10A68F: boost::lockfree::queue<int, boost::lockfree::fixed_sized<true> >::queue(unsigned long) (in /home/ubuntu/Downloads/2/Threading-master/queue_lockfree_boost/code03.out)
+==2119==    by 0x10957A: _GLOBAL__sub_I_q (in /home/ubuntu/Downloads/2/Threading-master/queue_lockfree_boost/code03.out)
+==2119==    by 0x10A86C: __libc_csu_init (in /home/ubuntu/Downloads/2/Threading-master/queue_lockfree_boost/code03.out)
+==2119==    by 0x5623B27: (below main) (libc-start.c:266)
+==2119==  Block was alloc'd by thread #1
+==2119== 
+==2119== ----------------------------------------------------------------
+==2119== 
+==2119== Possible data race during read of size 4 at 0x5E29EC0 by thread #3
+==2119== Locks held: none
+==2119==    at 0x109711: consume() (in /home/ubuntu/Downloads/2/Threading-master/queue_lockfree_boost/code03.out)
+==2119==    by 0x4EFF57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2119==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2119==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==2119==    by 0x572388E: clone (clone.S:95)
+==2119== 
+==2119== This conflicts with a previous write of size 2 by thread #2
+==2119== Locks held: none
+==2119==    at 0x109939: produce() (in /home/ubuntu/Downloads/2/Threading-master/queue_lockfree_boost/code03.out)
+==2119==    by 0x4EFF57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2119==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2119==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==2119==    by 0x572388E: clone (clone.S:95)
+==2119==  Address 0x5e29ec0 is 553,536 bytes inside a block of size 640,135 alloc'd
+==2119==    at 0x4C3159F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2119==    by 0x10A68F: boost::lockfree::queue<int, boost::lockfree::fixed_sized<true> >::queue(unsigned long) (in /home/ubuntu/Downloads/2/Threading-master/queue_lockfree_boost/code03.out)
+==2119==    by 0x10957A: _GLOBAL__sub_I_q (in /home/ubuntu/Downloads/2/Threading-master/queue_lockfree_boost/code03.out)
+==2119==    by 0x10A86C: __libc_csu_init (in /home/ubuntu/Downloads/2/Threading-master/queue_lockfree_boost/code03.out)
+==2119==    by 0x5623B27: (below main) (libc-start.c:266)
+==2119==  Block was alloc'd by thread #1
+==2119== 
+==2119== 
+==2119== For counts of detected and suppressed errors, rerun with: -v
+==2119== Use --history-level=approx or =none to gain increased speed, at
+==2119== the cost of reduced accuracy of conflicting-access information
+==2119== ERROR SUMMARY: 39961 errors from 4 contexts (suppressed: 0 from 0)

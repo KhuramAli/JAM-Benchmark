@@ -1,0 +1,24 @@
+==================
+WARNING: ThreadSanitizer: data race (pid=2053)
+  Write of size 1 at 0x563e29374140 by main thread:
+    #0 main /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-Synchronized_boost/code07.cpp:68 (code07.out+0x174f)
+
+  Previous read of size 1 at 0x563e29374140 by thread T5:
+    #0 consumer() /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-Synchronized_boost/code07.cpp:37 (code07.out+0x1dc7)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code07.out+0x23f9)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code07.out+0x23f9)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code07.out+0x23f9)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code07.out+0x23f9)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code07.out+0x23f9)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'done' of size 1 at 0x563e29374140 (code07.out+0x000000204140)
+
+  Thread T5 (tid=2060, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-Synchronized_boost/code07.cpp:68 in main
+==================
+ThreadSanitizer: reported 1 warnings

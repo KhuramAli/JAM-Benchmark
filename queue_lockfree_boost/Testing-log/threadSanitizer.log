@@ -1,0 +1,54 @@
+==================
+WARNING: ThreadSanitizer: data race (pid=2140)
+  Atomic read of size 4 at 0x7f377d31c440 by thread T3:
+    #0 __tsan_atomic32_load <null> (libtsan.so.0+0x6599e)
+    #1 std::atomic<boost::lockfree::detail::tagged_index>::load(std::memory_order) const /usr/include/c++/7/atomic:250 (code03.out+0x1f77)
+    #2 bool boost::lockfree::queue<int, boost::lockfree::fixed_sized<true> >::pop<int>(int&) /usr/include/boost/lockfree/queue.hpp:385 (code03.out+0x1f77)
+    #3 boost::lockfree::queue<int, boost::lockfree::fixed_sized<true> >::pop(int&) /usr/include/boost/lockfree/queue.hpp:366 (code03.out+0x1f77)
+    #4 consume() /home/ubuntu/Downloads/2/Threading-master/queue_lockfree_boost/code03.cpp:22 (code03.out+0x1f77)
+    #5 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code03.out+0x24f9)
+    #6 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code03.out+0x24f9)
+    #7 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code03.out+0x24f9)
+    #8 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code03.out+0x24f9)
+    #9 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code03.out+0x24f9)
+    #10 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 2 at 0x7f377d31c440 by thread T2:
+    #0 boost::lockfree::detail::tagged_index::set_index(unsigned short) /usr/include/boost/lockfree/detail/freelist.hpp:292 (code03.out+0x1e75)
+    #1 boost::lockfree::detail::fixed_size_freelist<boost::lockfree::queue<int, boost::lockfree::fixed_sized<true> >::node, boost::lockfree::detail::runtime_sized_freelist_storage<boost::lockfree::queue<int, boost::lockfree::fixed_sized<true> >::node, std::allocator<boost::lockfree::queue<int, boost::lockfree::fixed_sized<true> >::node> > >::deallocate_impl(unsigned short) /usr/include/boost/lockfree/detail/freelist.hpp:592 (code03.out+0x1e75)
+    #2 void boost::lockfree::detail::fixed_size_freelist<boost::lockfree::queue<int, boost::lockfree::fixed_sized<true> >::node, boost::lockfree::detail::runtime_sized_freelist_storage<boost::lockfree::queue<int, boost::lockfree::fixed_sized<true> >::node, std::allocator<boost::lockfree::queue<int, boost::lockfree::fixed_sized<true> >::node> > >::deallocate<true>(unsigned short) /usr/include/boost/lockfree/detail/freelist.hpp:580 (code03.out+0x1e75)
+    #3 void boost::lockfree::detail::fixed_size_freelist<boost::lockfree::queue<int, boost::lockfree::fixed_sized<true> >::node, boost::lockfree::detail::runtime_sized_freelist_storage<boost::lockfree::queue<int, boost::lockfree::fixed_sized<true> >::node, std::allocator<boost::lockfree::queue<int, boost::lockfree::fixed_sized<true> >::node> > >::destruct<true>(boost::lockfree::detail::tagged_index) /usr/include/boost/lockfree/detail/freelist.hpp:478 (code03.out+0x1e75)
+    #4 bool boost::lockfree::queue<int, boost::lockfree::fixed_sized<true> >::pop<int>(int&) /usr/include/boost/lockfree/queue.hpp:409 (code03.out+0x1e75)
+    #5 boost::lockfree::queue<int, boost::lockfree::fixed_sized<true> >::pop(int&) /usr/include/boost/lockfree/queue.hpp:366 (code03.out+0x1e75)
+    #6 consume() /home/ubuntu/Downloads/2/Threading-master/queue_lockfree_boost/code03.cpp:22 (code03.out+0x1e75)
+    #7 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code03.out+0x24f9)
+    #8 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code03.out+0x24f9)
+    #9 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code03.out+0x24f9)
+    #10 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code03.out+0x24f9)
+    #11 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code03.out+0x24f9)
+    #12 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is heap block of size 640135 at 0x7f377d299000 allocated by main thread:
+    #0 operator new(unsigned long) <null> (libtsan.so.0+0x73f0a)
+    #1 __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) /usr/include/c++/7/ext/new_allocator.h:111 (code03.out+0x4025)
+    #2 boost::alignment::aligned_allocator_adaptor<std::allocator<boost::lockfree::queue<int, boost::lockfree::fixed_sized<true> >::node>, 64ul>::allocate(unsigned long) /usr/include/boost/align/aligned_allocator_adaptor.hpp:108 (code03.out+0x4025)
+    #3 boost::lockfree::detail::runtime_sized_freelist_storage<boost::lockfree::queue<int, boost::lockfree::fixed_sized<true> >::node, std::allocator<boost::lockfree::queue<int, boost::lockfree::fixed_sized<true> >::node> >::runtime_sized_freelist_storage<std::allocator<boost::lockfree::queue<int, boost::lockfree::fixed_sized<true> >::node> >(std::allocator<boost::lockfree::queue<int, boost::lockfree::fixed_sized<true> >::node> const&, unsigned long) /usr/include/boost/lockfree/detail/freelist.hpp:371 (code03.out+0x4025)
+    #4 boost::lockfree::detail::fixed_size_freelist<boost::lockfree::queue<int, boost::lockfree::fixed_sized<true> >::node, boost::lockfree::detail::runtime_sized_freelist_storage<boost::lockfree::queue<int, boost::lockfree::fixed_sized<true> >::node, std::allocator<boost::lockfree::queue<int, boost::lockfree::fixed_sized<true> >::node> > >::fixed_size_freelist<std::allocator<boost::lockfree::queue<int, boost::lockfree::fixed_sized<true> >::node> >(std::allocator<boost::lockfree::queue<int, boost::lockfree::fixed_sized<true> >::node> const&, unsigned long) /usr/include/boost/lockfree/detail/freelist.hpp:424 (code03.out+0x4025)
+    #5 boost::lockfree::queue<int, boost::lockfree::fixed_sized<true> >::queue(unsigned long) /usr/include/boost/lockfree/queue.hpp:208 (code03.out+0x4025)
+    #6 __static_initialization_and_destruction_0 /home/ubuntu/Downloads/2/Threading-master/queue_lockfree_boost/code03.cpp:10 (code03.out+0x1c04)
+    #7 _GLOBAL__sub_I_q /home/ubuntu/Downloads/2/Threading-master/queue_lockfree_boost/code03.cpp:36 (code03.out+0x1c04)
+    #8 __libc_csu_init <null> (code03.out+0x435c)
+
+  Thread T3 (tid=2145, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 main /home/ubuntu/Downloads/2/Threading-master/queue_lockfree_boost/code03.cpp:30 (code03.out+0x1aa1)
+
+  Thread T2 (tid=2144, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 main /home/ubuntu/Downloads/2/Threading-master/queue_lockfree_boost/code03.cpp:29 (code03.out+0x1a8d)
+
+SUMMARY: ThreadSanitizer: data race (/usr/lib/x86_64-linux-gnu/libtsan.so.0+0x6599e) in __tsan_atomic32_load
+==================
+ThreadSanitizer: reported 1 warnings

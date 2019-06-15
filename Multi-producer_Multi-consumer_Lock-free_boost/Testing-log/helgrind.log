@@ -1,0 +1,336 @@
+==8900== Helgrind, a thread error detector
+==8900== Copyright (C) 2007-2017, and GNU GPL'd, by OpenWorks LLP et al.
+==8900== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==8900== Command: ./code08.out
+==8900== Parent PID: 8899
+==8900== 
+==8900== ---Thread-Announcement------------------------------------------
+==8900== 
+==8900== Thread #3 was created
+==8900==    at 0x572387E: clone (clone.S:71)
+==8900==    by 0x53EAEC4: create_thread (createthread.c:100)
+==8900==    by 0x53EAEC4: pthread_create@@GLIBC_2.2.5 (pthread_create.c:797)
+==8900==    by 0x4C36A27: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==8900==    by 0x4EFF834: std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8900==    by 0x108E72: main (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8900== 
+==8900== ---Thread-Announcement------------------------------------------
+==8900== 
+==8900== Thread #2 was created
+==8900==    at 0x572387E: clone (clone.S:71)
+==8900==    by 0x53EAEC4: create_thread (createthread.c:100)
+==8900==    by 0x53EAEC4: pthread_create@@GLIBC_2.2.5 (pthread_create.c:797)
+==8900==    by 0x4C36A27: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==8900==    by 0x4EFF834: std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8900==    by 0x108E72: main (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8900== 
+==8900== ----------------------------------------------------------------
+==8900== 
+==8900== Possible data race during read of size 8 at 0x60B0870 by thread #3
+==8900== Locks held: none
+==8900==    at 0x10940F: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8900==    by 0x4EFF57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8900==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==8900==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==8900==    by 0x572388E: clone (clone.S:95)
+==8900==  Address 0x60b0870 is 0 bytes inside a block of size 64 alloc'd
+==8900==    at 0x4C3159F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==8900==    by 0x1093D4: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8900==    by 0x4EFF57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8900==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==8900==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==8900==    by 0x572388E: clone (clone.S:95)
+==8900==  Block was alloc'd by thread #2
+==8900== 
+==8900== ---Thread-Announcement------------------------------------------
+==8900== 
+==8900== Thread #6 was created
+==8900==    at 0x572387E: clone (clone.S:71)
+==8900==    by 0x53EAEC4: create_thread (createthread.c:100)
+==8900==    by 0x53EAEC4: pthread_create@@GLIBC_2.2.5 (pthread_create.c:797)
+==8900==    by 0x4C36A27: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==8900==    by 0x4EFF834: std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8900==    by 0x108EFB: main (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8900== 
+==8900== ---Thread-Announcement------------------------------------------
+==8900== 
+==8900== Thread #1 is the program's root thread
+==8900== 
+==8900== ----------------------------------------------------------------
+==8900== 
+==8900== Possible data race during write of size 8 at 0x5DA6C80 by thread #6
+==8900== Locks held: none
+==8900==    at 0x1095FF: consumer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8900==    by 0x4EFF57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8900==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==8900==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==8900==    by 0x572388E: clone (clone.S:95)
+==8900== 
+==8900== This conflicts with a previous read of size 8 by thread #2
+==8900== Locks held: none
+==8900==    at 0x10940F: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8900==    by 0x4EFF57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8900==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==8900==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==8900==    by 0x572388E: clone (clone.S:95)
+==8900==  Address 0x5da6c80 is 0 bytes inside a block of size 64 alloc'd
+==8900==    at 0x4C3159F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==8900==    by 0x1099BD: boost::lockfree::queue<int>::queue(unsigned long) (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8900==    by 0x1091EA: _GLOBAL__sub_I_producer_count (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8900==    by 0x109D6C: __libc_csu_init (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8900==    by 0x5623B27: (below main) (libc-start.c:266)
+==8900==  Block was alloc'd by thread #1
+==8900== 
+==8900== ----------------------------------------------------------------
+==8900== 
+==8900== Possible data race during read of size 8 at 0x5DA6C00 by thread #6
+==8900== Locks held: none
+==8900==    at 0x10955E: consumer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8900==    by 0x4EFF57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8900==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==8900==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==8900==    by 0x572388E: clone (clone.S:95)
+==8900== 
+==8900== This conflicts with a previous write of size 8 by thread #2
+==8900== Locks held: none
+==8900==    at 0x1093F8: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8900==    by 0x4EFF57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8900==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==8900==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==8900==    by 0x572388E: clone (clone.S:95)
+==8900==  Address 0x5da6c00 is 0 bytes inside a block of size 64 alloc'd
+==8900==    at 0x4C3159F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==8900==    by 0x1099BD: boost::lockfree::queue<int>::queue(unsigned long) (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8900==    by 0x1091EA: _GLOBAL__sub_I_producer_count (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8900==    by 0x109D6C: __libc_csu_init (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8900==    by 0x5623B27: (below main) (libc-start.c:266)
+==8900==  Block was alloc'd by thread #1
+==8900== 
+==8900== ----------------------------------------------------------------
+==8900== 
+==8900== Possible data race during read of size 8 at 0x7193140 by thread #6
+==8900== Locks held: none
+==8900==    at 0x1095F1: consumer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8900==    by 0x4EFF57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8900==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==8900==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==8900==    by 0x572388E: clone (clone.S:95)
+==8900==  Address 0x7193140 is 0 bytes inside a block of size 64 alloc'd
+==8900==    at 0x4C3159F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==8900==    by 0x1093D4: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8900==    by 0x4EFF57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8900==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==8900==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==8900==    by 0x572388E: clone (clone.S:95)
+==8900==  Block was alloc'd by thread #3
+==8900== 
+--8900-- core    :   553,652,224/  553,652,224 max/curr mmap'd, 4/0 unsplit/split sb unmmap'd,    540,163,288/  540,163,288 max/curr,      174874/ 661512552 totalloc-blocks/bytes,      174973 searches 8 rzB
+--8900-- dinfo   :    20,832,256/   13,901,824 max/curr mmap'd, 1/7 unsplit/split sb unmmap'd,     19,304,624/    7,383,568 max/curr,      574841/  88948848 totalloc-blocks/bytes,      580995 searches 8 rzB
+--8900-- client  : 1,279,262,720/1,279,262,720 max/curr mmap'd, 0/0 unsplit/split sb unmmap'd,    638,474,976/  638,474,976 max/curr,     9975009/ 638475024 totalloc-blocks/bytes,     9974704 searches 24 rzB
+--8900-- demangle:        65,536/       65,536 max/curr mmap'd, 0/0 unsplit/split sb unmmap'd,          5,264/          384 max/curr,         101/     27088 totalloc-blocks/bytes,         100 searches 8 rzB
+--8900-- ttaux   :       196,608/      196,608 max/curr mmap'd, 0/0 unsplit/split sb unmmap'd,        107,504/       71,088 max/curr,         382/    196336 totalloc-blocks/bytes,         381 searches 8 rzB
+--8900-- translate:            fast SP updates identified: 0 (0.0%)
+--8900-- translate:   generic_known SP updates identified: 151 (69.3%)
+--8900-- translate: generic_unknown SP updates identified: 67 (30.7%)
+--8900-- translate: PX: SPonly 0,  UnwRegs 2,914,  AllRegs 0,  AllRegsAllInsns 0
+--8900--     tt/tc: 6,334 tt lookups requiring 6,465 probes
+--8900--     tt/tc: 3,822 fast-cache updates, 5 flushes
+--8900--  transtab: new        2,884 (76,650 -> 655,383; ratio 8.6) [0 scs] avg tce size 227
+--8900--  transtab: dumped     0 (0 -> ??) (sectors recycled 0)
+--8900--  transtab: discarded  15 (589 -> ??)
+--8900-- scheduler: 40,137,647 event checks.
+--8900-- scheduler: 19,966,716 indir transfers, 845 misses (1 in 23629)
+--8900-- scheduler: 397/9,979,353 major/minor sched events.
+--8900--    sanity: 397 cheap, 14 expensive checks.
+--8900--    exectx: 769 lists, 17 contexts (avg 0.02 per list) (avg 6.65 IP per context)
+--8900--    exectx: 10,369,272 searches, 10,369,255 full compares (999 per 1000)
+--8900--    exectx: 0 cmp2, 794,243 cmp4, 0 cmpAll
+--8900--  errormgr: 4 supplist searches, 120 comparisons during search
+--8900--  errormgr: 394,255 errlist searches, 794,243 comparisons during search
+
+   WordSet "univ_lsets":
+      addTo                 0 (0 uncached)
+      delFrom               0 (0 uncached)
+      union                 0
+      intersect             1 (0 uncached) [nb. incl isSubsetOf]
+      minus                 0 (0 uncached)
+      elem                  0
+      doubleton             0
+      isEmpty               0
+      isSingleton           0
+      anyElementOf          0
+      isSubsetOf            1
+      dieWS                 0
+
+   WordSet "univ_laog":
+      addTo                 0 (0 uncached)
+      delFrom               0 (0 uncached)
+      union                 0
+      intersect             0 (0 uncached) [nb. incl isSubsetOf]
+      minus                 0 (0 uncached)
+      elem                  0
+      doubleton             0
+      isEmpty               0
+      isSingleton           0
+      anyElementOf          0
+      isSubsetOf            0
+      dieWS                 0
+
+        locksets:        1 unique lock sets
+       univ_laog:        1 unique lock sets
+  LockN-to-P map:        0 queries (0 map size)
+client malloc-ed blocks: 9,975,007
+string table map:        0 queries (0 map size)
+            LAOG:        0 map size
+ LAOG exposition:        0 map size
+           locks:        0 acquires, 0 releases
+   sanity checks:        1
+
+<<< BEGIN libhb stats >>>
+ secmaps:    156,612 allocd (1,282,965,504 g-a-range)
+  linesZ: 20,046,336 allocd ( 962,224,128 bytes occupied)
+  linesF:          0 allocd (           0 bytes occupied) (         0 used)
+ secmaps:    156,612 in map (can be scanGCed     0) #54 scanGC 
+ secmaps:          0 in freelist, total (scanGCed 4, ssetGCed 1,799)
+ secmaps: 20,849,945 searches (     483,540 slow)
+
+   cache: 210,386,044 totrefs (10,276,719 misses)
+   cache:     10,276,719 Z-fetch,                 0 F-fetch
+   cache:     10,243,798 Z-wback,                 0 F-wback
+   cache:             54 flushes_invals
+   cache:  1,458,709,949 arange_New      21,632,448 direct-to-Zreps
+
+   cline: 10,276,719 normalises
+   cline: c rds 8/4/2/1:    10,343,008        77,982            53        10,564
+   cline: c wrs 8/4/2/1:    10,259,706     9,975,639            92         1,132
+   cline: s wrs 8/4/2/1:   179,717,921             1             0             1
+   cline: s rd1s 0, s copy1s 0
+   cline:    splits: 8to4           30    4to2           51    2to1           92
+   cline: pulldowns: 8to4    9,979,346    4to2        5,002    2to1        6,770
+
+   libhb:    10,431,539 msmcread  (197,075 dragovers)
+   libhb:    20,236,464 msmcwrite (196,558 dragovers)
+   libhb:       751,952 cmpLEQ queries (40 misses)
+   libhb:       747,674 join2  queries (58 misses)
+
+   libhb: VTSops: tick 20,  join 58,  cmpLEQ 40
+   libhb: VTSops: cmp_structural 422 (205 slow)
+   libhb: VTSset: find__or__clone_and_add 79 (27 allocd)
+   libhb: VTSops: indexAt_SLOW 10
+
+   libhb: 27 entries in vts_table (approximately 648 bytes)
+   libhb: #0 vts_tab GC    #0 vts pruning
+   libhb: 27 entries in vts_set
+
+   libhb: threads live: 6 exit_and_joinedwith 0 exit 0 joinedwith 0
+   libhb: 0 verydead_threads, 0 verydead_threads_not_pruned
+
+   libhb: oldrefHTN 393242 (22,021,552 bytes)
+   libhb: oldref lookup found=2 notfound=2
+   libhb: oldref bind tsw/rcec ==/==:281 ==/!=:111 !=/!=:393,242
+   libhb: ctxt__rcdec calls 111. rcec gc discards 0
+   libhb: contextTab: 196613 slots, 357 cur ents(ref'd 271), 357 max ents
+   libhb: contextTab chain of [length]=nchain. Avg chain len 1.0
+        [0]=196256 [1]=357 
+   libhb: contextTab: 393634 queries, 393277 cmps
+<<< END libhb stats >>>
+
+
+host stacktrace:
+==8900==    at 0x5802C55A: ??? (in /usr/lib/valgrind/helgrind-amd64-linux)
+==8900==    by 0x5803AE65: ??? (in /usr/lib/valgrind/helgrind-amd64-linux)
+==8900==    by 0x5803AFD6: ??? (in /usr/lib/valgrind/helgrind-amd64-linux)
+==8900==    by 0x5803B5D7: ??? (in /usr/lib/valgrind/helgrind-amd64-linux)
+==8900==    by 0x5803C850: ??? (in /usr/lib/valgrind/helgrind-amd64-linux)
+==8900==    by 0x580295FC: ??? (in /usr/lib/valgrind/helgrind-amd64-linux)
+==8900==    by 0x5801A3ED: ??? (in /usr/lib/valgrind/helgrind-amd64-linux)
+==8900==    by 0x580219B3: ??? (in /usr/lib/valgrind/helgrind-amd64-linux)
+==8900==    by 0x100313365C: ???
+==8900==    by 0x1057B2BF1F: ???
+==8900==    by 0xA85F: ???
+==8900==    by 0x10027968AF: ???
+==8900==    by 0x1057B2BF07: ???
+==8900==    by 0x1057B2BF1F: ???
+==8900==    by 0x201: ???
+
+sched status:
+  running_tid=6
+
+Thread 1: status = VgTs_WaitSys (lwpid 8900)
+==8900==    at 0x5705E57: sched_yield (syscall-template.S:78)
+==8900==    by 0x4C36AC4: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==8900==    by 0x4EFF834: std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8900==    by 0x108EFB: main (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+client stack range: [0x1FFEFFE000 0x1FFF000FFF] client SP: 0x1FFEFFFA08
+valgrind stack top usage: 10960 of 1048576
+
+Thread 2: status = VgTs_Yielding (lwpid 8902)
+==8900==    at 0x1093D5: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8900==    by 0x4EFF57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8900==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==8900==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==8900==    by 0x572388E: clone (clone.S:95)
+client stack range: [0x6192000 0x6990FFF] client SP: 0x6990E20
+valgrind stack top usage: 2968 of 1048576
+
+Thread 3: status = VgTs_Yielding (lwpid 8903)
+==8900==    at 0x109360: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8900==    by 0x4EFF57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8900==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==8900==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==8900==    by 0x572388E: clone (clone.S:95)
+client stack range: [0x6993000 0x7191FFF] client SP: 0x7191E20
+valgrind stack top usage: 5624 of 1048576
+
+Thread 4: status = VgTs_Yielding (lwpid 8905)
+==8900==    at 0x4ED5190: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8900==    by 0x1093D4: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8900==    by 0x4EFF57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8900==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==8900==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==8900==    by 0x572388E: clone (clone.S:95)
+client stack range: [0xA194000 0xA992FFF] client SP: 0xA992E18
+valgrind stack top usage: 2272 of 1048576
+
+Thread 5: status = VgTs_Yielding (lwpid 8906)
+==8900==    at 0x4ED5190: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8900==    by 0x1093D4: producer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8900==    by 0x4EFF57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8900==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==8900==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==8900==    by 0x572388E: clone (clone.S:95)
+client stack range: [0x14195000 0x14993FFF] client SP: 0x14993E18
+valgrind stack top usage: 2176 of 1048576
+
+Thread 6: status = VgTs_Runnable (lwpid 8908)
+==8900==    at 0x10955E: consumer() (in /home/ubuntu/Downloads/2/Threading-master/Multi-producer_Multi-consumer_Lock-free_boost/code08.out)
+==8900==    by 0x4EFF57E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==8900==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==8900==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==8900==    by 0x572388E: clone (clone.S:95)
+client stack range: [0x4E996000 0x4F194FFF] client SP: 0x4F194E40
+valgrind stack top usage: 7256 of 1048576
+
+==8900== 
+==8900==     Valgrind's memory management: out of memory:
+==8900==        newSuperblock's request for 6295552 bytes failed.
+==8900==        2,930,909,184 bytes have already been mmap-ed ANONYMOUS.
+==8900==     Valgrind cannot continue.  Sorry.
+==8900== 
+==8900==     There are several possible reasons for this.
+==8900==     - You have some kind of memory limit in place.  Look at the
+==8900==       output of 'ulimit -a'.  Is there a limit on the size of
+==8900==       virtual memory or address space?
+==8900==     - You have run out of swap space.
+==8900==     - Valgrind has a bug.  If you think this is the case or you are
+==8900==     not sure, please let us know and we'll try to fix it.
+==8900==     Please note that programs can take substantially more memory than
+==8900==     normal when running under Valgrind tools, eg. up to twice or
+==8900==     more, depending on the tool.  On a 64-bit machine, Valgrind
+==8900==     should be able to make use of up 32GB memory.  On a 32-bit
+==8900==     machine, Valgrind should be able to use all the memory available
+==8900==     to a single process, up to 4GB if that's how you have your
+==8900==     kernel configured.  Most 32-bit Linux setups allow a maximum of
+==8900==     3GB per process.
+==8900== 
+==8900==     Whatever the reason, Valgrind cannot continue.  Sorry.

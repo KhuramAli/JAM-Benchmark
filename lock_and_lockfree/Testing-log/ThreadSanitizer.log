@@ -1,0 +1,1939 @@
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Write of size 1 at 0x561855213318 by main thread:
+    #0 main /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:394 (code13.out+0x2154)
+
+  Previous read of size 1 at 0x561855213318 by thread T49 (mutexes: write M12):
+    #0 operator() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:70 (code13.out+0x3544)
+    #1 wait<start_wait()::<lambda()> > /usr/include/c++/7/condition_variable:98 (code13.out+0x3544)
+    #2 start_wait() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:70 (code13.out+0x3544)
+    #3 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:85 (code13.out+0x3544)
+    #4 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #5 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #6 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #7 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #8 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #9 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'ready' of size 1 at 0x561855213318 (code13.out+0x000000206318)
+
+  Mutex M12 (0x561855213360) created at:
+    #0 pthread_mutex_lock <null> (libtsan.so.0+0x3faeb)
+    #1 __gthread_mutex_lock /usr/include/x86_64-linux-gnu/c++/7/bits/gthr-default.h:748 (code13.out+0x27f9)
+    #2 std::mutex::lock() /usr/include/c++/7/bits/std_mutex.h:103 (code13.out+0x27f9)
+    #3 std::unique_lock<std::mutex>::lock() /usr/include/c++/7/bits/std_mutex.h:267 (code13.out+0x27f9)
+    #4 std::unique_lock<std::mutex>::unique_lock(std::mutex&) /usr/include/c++/7/bits/std_mutex.h:197 (code13.out+0x27f9)
+    #5 start_wait() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:69 (code13.out+0x27f9)
+    #6 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:75 (code13.out+0x27f9)
+    #7 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #8 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #9 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #10 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #11 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #12 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Thread T49 (tid=7207, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:394 in main
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous read of size 8 at 0x5618552131c0 by thread T10:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T1 (tid=7158, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T10 (tid=7168, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 in threadfunc_unlocked()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T45:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T45 (tid=7203, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T3:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T3 (tid=7160, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T2:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T2 (tid=7159, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T11:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T11 (tid=7169, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T12:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T12 (tid=7170, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T13:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T13 (tid=7171, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T4:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T4 (tid=7161, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T5:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T5 (tid=7162, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T7:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T7 (tid=7164, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T44:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T44 (tid=7202, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T21:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T21 (tid=7179, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T23:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T23 (tid=7181, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T28:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T28 (tid=7186, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T22:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T22 (tid=7180, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T31:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T31 (tid=7189, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T39:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T39 (tid=7197, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T27:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T27 (tid=7185, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T43:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T43 (tid=7201, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T42:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T42 (tid=7200, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T38:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T38 (tid=7196, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T41:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T41 (tid=7199, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T33:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T33 (tid=7191, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T24:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T24 (tid=7182, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T25:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T25 (tid=7183, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T15:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T15 (tid=7173, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T40:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T40 (tid=7198, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T14:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T14 (tid=7172, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T36:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T36 (tid=7194, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T48:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T48 (tid=7206, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T49:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T49 (tid=7207, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T17:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T17 (tid=7175, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T29:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T29 (tid=7187, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T18:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T18 (tid=7176, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T30:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T30 (tid=7188, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T19:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T19 (tid=7177, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T37:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T37 (tid=7195, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T16:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T16 (tid=7174, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T35:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T35 (tid=7193, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T6:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T6 (tid=7163, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=7156)
+  Read of size 8 at 0x5618552131c0 by thread T32:
+    #0 threadfunc_unlocked_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 (code13.out+0x35cc)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Previous write of size 8 at 0x5618552131c0 by thread T1:
+    #0 threadfunc_unlocked() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:78 (code13.out+0x289c)
+    #1 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #2 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #3 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #4 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #5 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #6 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'flat_uint' of size 8 at 0x5618552131c0 (code13.out+0x0000002061c0)
+
+  Thread T32 (tid=7190, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+  Thread T1 (tid=7158, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:91 in threadfunc_unlocked_read()
+==================
+ThreadSanitizer: reported 42 warnings
+==================
+WARNING: ThreadSanitizer: data race (pid=7211)
+  Write of size 1 at 0x55a62ffe7318 by main thread:
+    #0 main /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:394 (code13.out+0x2154)
+
+  Previous read of size 1 at 0x55a62ffe7318 by thread T49 (mutexes: write M12):
+    #0 operator() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:70 (code13.out+0x3bb4)
+    #1 wait<start_wait()::<lambda()> > /usr/include/c++/7/condition_variable:98 (code13.out+0x3bb4)
+    #2 start_wait() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:70 (code13.out+0x3bb4)
+    #3 threadfunc_mutex_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:118 (code13.out+0x3bb4)
+    #4 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #5 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #6 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #7 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #8 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #9 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'ready' of size 1 at 0x55a62ffe7318 (code13.out+0x000000206318)
+
+  Mutex M12 (0x55a62ffe7360) created at:
+    #0 pthread_mutex_lock <null> (libtsan.so.0+0x3faeb)
+    #1 __gthread_mutex_lock /usr/include/x86_64-linux-gnu/c++/7/bits/gthr-default.h:748 (code13.out+0x3129)
+    #2 std::mutex::lock() /usr/include/c++/7/bits/std_mutex.h:103 (code13.out+0x3129)
+    #3 std::unique_lock<std::mutex>::lock() /usr/include/c++/7/bits/std_mutex.h:267 (code13.out+0x3129)
+    #4 std::unique_lock<std::mutex>::unique_lock(std::mutex&) /usr/include/c++/7/bits/std_mutex.h:197 (code13.out+0x3129)
+    #5 start_wait() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:69 (code13.out+0x3129)
+    #6 threadfunc_mutex() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:107 (code13.out+0x3129)
+    #7 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #8 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #9 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #10 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #11 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #12 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Thread T49 (tid=7262, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:394 in main
+==================
+ThreadSanitizer: reported 1 warnings
+==================
+WARNING: ThreadSanitizer: data race (pid=7268)
+  Write of size 1 at 0x55bf68c62318 by main thread:
+    #0 main /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:394 (code13.out+0x2154)
+
+  Previous read of size 1 at 0x55bf68c62318 by thread T49 (mutexes: write M12):
+    #0 operator() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:70 (code13.out+0x3ec4)
+    #1 wait<start_wait()::<lambda()> > /usr/include/c++/7/condition_variable:98 (code13.out+0x3ec4)
+    #2 start_wait() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:70 (code13.out+0x3ec4)
+    #3 threadfunc_rwlock_read_wr() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:157 (code13.out+0x3ec4)
+    #4 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #5 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #6 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #7 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #8 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #9 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'ready' of size 1 at 0x55bf68c62318 (code13.out+0x000000206318)
+
+  Mutex M12 (0x55bf68c62360) created at:
+    #0 pthread_mutex_lock <null> (libtsan.so.0+0x3faeb)
+    #1 __gthread_mutex_lock /usr/include/x86_64-linux-gnu/c++/7/bits/gthr-default.h:748 (code13.out+0x2f6d)
+    #2 std::mutex::lock() /usr/include/c++/7/bits/std_mutex.h:103 (code13.out+0x2f6d)
+    #3 std::unique_lock<std::mutex>::lock() /usr/include/c++/7/bits/std_mutex.h:267 (code13.out+0x2f6d)
+    #4 std::unique_lock<std::mutex>::unique_lock(std::mutex&) /usr/include/c++/7/bits/std_mutex.h:197 (code13.out+0x2f6d)
+    #5 start_wait() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:69 (code13.out+0x2f6d)
+    #6 threadfunc_rwlock() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:140 (code13.out+0x2f6d)
+    #7 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #8 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #9 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #10 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #11 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #12 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Thread T49 (tid=7319, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:394 in main
+==================
+ThreadSanitizer: reported 1 warnings
+==================
+WARNING: ThreadSanitizer: data race (pid=7321)
+  Write of size 1 at 0x560af0acf318 by main thread:
+    #0 main /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:394 (code13.out+0x2154)
+
+  Previous read of size 1 at 0x560af0acf318 by thread T49 (mutexes: write M12):
+    #0 operator() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:70 (code13.out+0x4104)
+    #1 wait<start_wait()::<lambda()> > /usr/include/c++/7/condition_variable:98 (code13.out+0x4104)
+    #2 start_wait() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:70 (code13.out+0x4104)
+    #3 threadfunc_rwlock_read_rd() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:185 (code13.out+0x4104)
+    #4 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #5 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #6 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #7 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #8 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #9 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'ready' of size 1 at 0x560af0acf318 (code13.out+0x000000206318)
+
+  Mutex M12 (0x560af0acf360) created at:
+    #0 pthread_mutex_lock <null> (libtsan.so.0+0x3faeb)
+    #1 __gthread_mutex_lock /usr/include/x86_64-linux-gnu/c++/7/bits/gthr-default.h:748 (code13.out+0x2f6d)
+    #2 std::mutex::lock() /usr/include/c++/7/bits/std_mutex.h:103 (code13.out+0x2f6d)
+    #3 std::unique_lock<std::mutex>::lock() /usr/include/c++/7/bits/std_mutex.h:267 (code13.out+0x2f6d)
+    #4 std::unique_lock<std::mutex>::unique_lock(std::mutex&) /usr/include/c++/7/bits/std_mutex.h:197 (code13.out+0x2f6d)
+    #5 start_wait() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:69 (code13.out+0x2f6d)
+    #6 threadfunc_rwlock() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:140 (code13.out+0x2f6d)
+    #7 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #8 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #9 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #10 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #11 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #12 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Thread T49 (tid=7372, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:394 in main
+==================
+ThreadSanitizer: reported 1 warnings
+==================
+WARNING: ThreadSanitizer: data race (pid=7374)
+  Write of size 1 at 0x56549c98d318 by main thread:
+    #0 main /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:394 (code13.out+0x2154)
+
+  Previous read of size 1 at 0x56549c98d318 by thread T49 (mutexes: write M12):
+    #0 operator() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:70 (code13.out+0x3992)
+    #1 wait<start_wait()::<lambda()> > /usr/include/c++/7/condition_variable:98 (code13.out+0x3992)
+    #2 start_wait() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:70 (code13.out+0x3992)
+    #3 threadfunc_atomic_read() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:224 (code13.out+0x3992)
+    #4 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #5 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #6 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #7 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #8 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #9 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'ready' of size 1 at 0x56549c98d318 (code13.out+0x000000206318)
+
+  Mutex M12 (0x56549c98d360) created at:
+    #0 pthread_mutex_lock <null> (libtsan.so.0+0x3faeb)
+    #1 __gthread_mutex_lock /usr/include/x86_64-linux-gnu/c++/7/bits/gthr-default.h:748 (code13.out+0x2ae9)
+    #2 std::mutex::lock() /usr/include/c++/7/bits/std_mutex.h:103 (code13.out+0x2ae9)
+    #3 std::unique_lock<std::mutex>::lock() /usr/include/c++/7/bits/std_mutex.h:267 (code13.out+0x2ae9)
+    #4 std::unique_lock<std::mutex>::unique_lock(std::mutex&) /usr/include/c++/7/bits/std_mutex.h:197 (code13.out+0x2ae9)
+    #5 start_wait() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:69 (code13.out+0x2ae9)
+    #6 threadfunc_atomic() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:214 (code13.out+0x2ae9)
+    #7 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #8 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #9 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #10 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #11 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #12 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Thread T49 (tid=7425, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:394 in main
+==================
+ThreadSanitizer: reported 1 warnings
+==================
+WARNING: ThreadSanitizer: data race (pid=7428)
+  Write of size 1 at 0x56017941a318 by main thread:
+    #0 main /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:394 (code13.out+0x2154)
+
+  Previous read of size 1 at 0x56017941a318 by thread T49 (mutexes: write M12):
+    #0 operator() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:70 (code13.out+0x4344)
+    #1 wait<start_wait()::<lambda()> > /usr/include/c++/7/condition_variable:98 (code13.out+0x4344)
+    #2 start_wait() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:70 (code13.out+0x4344)
+    #3 threadfunc_atomic_read_consume() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:275 (code13.out+0x4344)
+    #4 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #5 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #6 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #7 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #8 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #9 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'ready' of size 1 at 0x56017941a318 (code13.out+0x000000206318)
+
+  Mutex M12 (0x56017941a360) created at:
+    #0 pthread_mutex_lock <null> (libtsan.so.0+0x3faeb)
+    #1 __gthread_mutex_lock /usr/include/x86_64-linux-gnu/c++/7/bits/gthr-default.h:748 (code13.out+0x2de9)
+    #2 std::mutex::lock() /usr/include/c++/7/bits/std_mutex.h:103 (code13.out+0x2de9)
+    #3 std::unique_lock<std::mutex>::lock() /usr/include/c++/7/bits/std_mutex.h:267 (code13.out+0x2de9)
+    #4 std::unique_lock<std::mutex>::unique_lock(std::mutex&) /usr/include/c++/7/bits/std_mutex.h:197 (code13.out+0x2de9)
+    #5 start_wait() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:69 (code13.out+0x2de9)
+    #6 threadfunc_atomic_set_release() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:245 (code13.out+0x2de9)
+    #7 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #8 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #9 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #10 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #11 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #12 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Thread T49 (tid=7479, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:394 in main
+==================
+ThreadSanitizer: reported 1 warnings
+==================
+WARNING: ThreadSanitizer: data race (pid=7482)
+  Write of size 1 at 0x5590a3f11318 by main thread:
+    #0 main /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:394 (code13.out+0x2154)
+
+  Previous read of size 1 at 0x5590a3f11318 by thread T49 (mutexes: write M12):
+    #0 operator() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:70 (code13.out+0x3772)
+    #1 wait<start_wait()::<lambda()> > /usr/include/c++/7/condition_variable:98 (code13.out+0x3772)
+    #2 start_wait() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:70 (code13.out+0x3772)
+    #3 threadfunc_atomic_read_acquire() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:296 (code13.out+0x3772)
+    #4 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #5 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #6 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #7 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #8 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #9 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'ready' of size 1 at 0x5590a3f11318 (code13.out+0x000000206318)
+
+  Mutex M12 (0x5590a3f11360) created at:
+    #0 pthread_mutex_lock <null> (libtsan.so.0+0x3faeb)
+    #1 __gthread_mutex_lock /usr/include/x86_64-linux-gnu/c++/7/bits/gthr-default.h:748 (code13.out+0x2de9)
+    #2 std::mutex::lock() /usr/include/c++/7/bits/std_mutex.h:103 (code13.out+0x2de9)
+    #3 std::unique_lock<std::mutex>::lock() /usr/include/c++/7/bits/std_mutex.h:267 (code13.out+0x2de9)
+    #4 std::unique_lock<std::mutex>::unique_lock(std::mutex&) /usr/include/c++/7/bits/std_mutex.h:197 (code13.out+0x2de9)
+    #5 start_wait() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:69 (code13.out+0x2de9)
+    #6 threadfunc_atomic_set_release() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:245 (code13.out+0x2de9)
+    #7 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #8 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #9 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #10 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #11 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #12 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Thread T49 (tid=7532, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:394 in main
+==================
+ThreadSanitizer: reported 1 warnings
+==================
+WARNING: ThreadSanitizer: data race (pid=7534)
+  Write of size 1 at 0x55d7cc08d318 by main thread:
+    #0 main /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:394 (code13.out+0x2154)
+
+  Previous read of size 1 at 0x55d7cc08d318 by thread T49 (mutexes: write M12):
+    #0 operator() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:70 (code13.out+0x4344)
+    #1 wait<start_wait()::<lambda()> > /usr/include/c++/7/condition_variable:98 (code13.out+0x4344)
+    #2 start_wait() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:70 (code13.out+0x4344)
+    #3 threadfunc_atomic_read_consume() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:275 (code13.out+0x4344)
+    #4 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #5 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #6 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #7 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #8 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #9 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'ready' of size 1 at 0x55d7cc08d318 (code13.out+0x000000206318)
+
+  Mutex M12 (0x55d7cc08d360) created at:
+    #0 pthread_mutex_lock <null> (libtsan.so.0+0x3faeb)
+    #1 __gthread_mutex_lock /usr/include/x86_64-linux-gnu/c++/7/bits/gthr-default.h:748 (code13.out+0x2969)
+    #2 std::mutex::lock() /usr/include/c++/7/bits/std_mutex.h:103 (code13.out+0x2969)
+    #3 std::unique_lock<std::mutex>::lock() /usr/include/c++/7/bits/std_mutex.h:267 (code13.out+0x2969)
+    #4 std::unique_lock<std::mutex>::unique_lock(std::mutex&) /usr/include/c++/7/bits/std_mutex.h:197 (code13.out+0x2969)
+    #5 start_wait() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:69 (code13.out+0x2969)
+    #6 threadfunc_atomic_set_cst() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:255 (code13.out+0x2969)
+    #7 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #8 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #9 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #10 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #11 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #12 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Thread T49 (tid=7585, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:394 in main
+==================
+ThreadSanitizer: reported 1 warnings
+==================
+WARNING: ThreadSanitizer: data race (pid=7587)
+  Write of size 1 at 0x5635bba0e318 by main thread:
+    #0 main /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:394 (code13.out+0x2154)
+
+  Previous read of size 1 at 0x5635bba0e318 by thread T49 (mutexes: write M12):
+    #0 operator() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:70 (code13.out+0x3772)
+    #1 wait<start_wait()::<lambda()> > /usr/include/c++/7/condition_variable:98 (code13.out+0x3772)
+    #2 start_wait() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:70 (code13.out+0x3772)
+    #3 threadfunc_atomic_read_acquire() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:296 (code13.out+0x3772)
+    #4 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #5 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #6 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #7 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #8 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #9 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'ready' of size 1 at 0x5635bba0e318 (code13.out+0x000000206318)
+
+  Mutex M12 (0x5635bba0e360) created at:
+    #0 pthread_mutex_lock <null> (libtsan.so.0+0x3faeb)
+    #1 __gthread_mutex_lock /usr/include/x86_64-linux-gnu/c++/7/bits/gthr-default.h:748 (code13.out+0x2969)
+    #2 std::mutex::lock() /usr/include/c++/7/bits/std_mutex.h:103 (code13.out+0x2969)
+    #3 std::unique_lock<std::mutex>::lock() /usr/include/c++/7/bits/std_mutex.h:267 (code13.out+0x2969)
+    #4 std::unique_lock<std::mutex>::unique_lock(std::mutex&) /usr/include/c++/7/bits/std_mutex.h:197 (code13.out+0x2969)
+    #5 start_wait() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:69 (code13.out+0x2969)
+    #6 threadfunc_atomic_set_cst() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:255 (code13.out+0x2969)
+    #7 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #8 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #9 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #10 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #11 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #12 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Thread T49 (tid=7638, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:394 in main
+==================
+ThreadSanitizer: reported 1 warnings
+==================
+WARNING: ThreadSanitizer: data race (pid=7640)
+  Write of size 1 at 0x55c9914b5318 by main thread:
+    #0 main /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:394 (code13.out+0x2154)
+
+  Previous read of size 1 at 0x55c9914b5318 by thread T50 (mutexes: write M12):
+    #0 operator() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:70 (code13.out+0x4344)
+    #1 wait<start_wait()::<lambda()> > /usr/include/c++/7/condition_variable:98 (code13.out+0x4344)
+    #2 start_wait() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:70 (code13.out+0x4344)
+    #3 threadfunc_atomic_read_consume() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:275 (code13.out+0x4344)
+    #4 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #5 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #6 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #7 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #8 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #9 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'ready' of size 1 at 0x55c9914b5318 (code13.out+0x000000206318)
+
+  Mutex M12 (0x55c9914b5360) created at:
+    #0 pthread_mutex_lock <null> (libtsan.so.0+0x3faeb)
+    #1 __gthread_mutex_lock /usr/include/x86_64-linux-gnu/c++/7/bits/gthr-default.h:748 (code13.out+0x2c69)
+    #2 std::mutex::lock() /usr/include/c++/7/bits/std_mutex.h:103 (code13.out+0x2c69)
+    #3 std::unique_lock<std::mutex>::lock() /usr/include/c++/7/bits/std_mutex.h:267 (code13.out+0x2c69)
+    #4 std::unique_lock<std::mutex>::unique_lock(std::mutex&) /usr/include/c++/7/bits/std_mutex.h:197 (code13.out+0x2c69)
+    #5 start_wait() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:69 (code13.out+0x2c69)
+    #6 threadfunc_atomic_set_relaxed() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:265 (code13.out+0x2c69)
+    #7 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #8 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #9 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #10 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #11 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #12 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Thread T50 (tid=7692, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:394 in main
+==================
+ThreadSanitizer: reported 1 warnings
+==================
+WARNING: ThreadSanitizer: data race (pid=7694)
+  Write of size 1 at 0x56063d35c318 by main thread:
+    #0 main /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:394 (code13.out+0x2154)
+
+  Previous read of size 1 at 0x56063d35c318 by thread T50 (mutexes: write M12):
+    #0 operator() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:70 (code13.out+0x3772)
+    #1 wait<start_wait()::<lambda()> > /usr/include/c++/7/condition_variable:98 (code13.out+0x3772)
+    #2 start_wait() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:70 (code13.out+0x3772)
+    #3 threadfunc_atomic_read_acquire() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:296 (code13.out+0x3772)
+    #4 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #5 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #6 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #7 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #8 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #9 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'ready' of size 1 at 0x56063d35c318 (code13.out+0x000000206318)
+
+  Mutex M12 (0x56063d35c360) created at:
+    #0 pthread_mutex_lock <null> (libtsan.so.0+0x3faeb)
+    #1 __gthread_mutex_lock /usr/include/x86_64-linux-gnu/c++/7/bits/gthr-default.h:748 (code13.out+0x2c69)
+    #2 std::mutex::lock() /usr/include/c++/7/bits/std_mutex.h:103 (code13.out+0x2c69)
+    #3 std::unique_lock<std::mutex>::lock() /usr/include/c++/7/bits/std_mutex.h:267 (code13.out+0x2c69)
+    #4 std::unique_lock<std::mutex>::unique_lock(std::mutex&) /usr/include/c++/7/bits/std_mutex.h:197 (code13.out+0x2c69)
+    #5 start_wait() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:69 (code13.out+0x2c69)
+    #6 threadfunc_atomic_set_relaxed() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:265 (code13.out+0x2c69)
+    #7 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #8 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #9 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #10 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #11 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #12 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Thread T50 (tid=7746, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:394 in main
+==================
+ThreadSanitizer: reported 1 warnings
+==================
+WARNING: ThreadSanitizer: data race (pid=7748)
+  Write of size 1 at 0x562dc3049318 by main thread:
+    #0 main /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:394 (code13.out+0x2154)
+
+  Previous read of size 1 at 0x562dc3049318 by thread T50 (mutexes: write M12):
+    #0 operator() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:70 (code13.out+0x4344)
+    #1 wait<start_wait()::<lambda()> > /usr/include/c++/7/condition_variable:98 (code13.out+0x4344)
+    #2 start_wait() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:70 (code13.out+0x4344)
+    #3 threadfunc_atomic_read_consume() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:275 (code13.out+0x4344)
+    #4 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #5 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #6 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #7 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #8 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #9 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'ready' of size 1 at 0x562dc3049318 (code13.out+0x000000206318)
+
+  Mutex M12 (0x562dc3049360) created at:
+    #0 pthread_mutex_lock <null> (libtsan.so.0+0x3faeb)
+    #1 __gthread_mutex_lock /usr/include/x86_64-linux-gnu/c++/7/bits/gthr-default.h:748 (code13.out+0x336b)
+    #2 std::mutex::lock() /usr/include/c++/7/bits/std_mutex.h:103 (code13.out+0x336b)
+    #3 std::unique_lock<std::mutex>::lock() /usr/include/c++/7/bits/std_mutex.h:267 (code13.out+0x336b)
+    #4 std::unique_lock<std::mutex>::unique_lock(std::mutex&) /usr/include/c++/7/bits/std_mutex.h:197 (code13.out+0x336b)
+    #5 start_wait() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:69 (code13.out+0x336b)
+    #6 threadfunc_atomic_weak() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:317 (code13.out+0x336b)
+    #7 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #8 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #9 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #10 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #11 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #12 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Thread T50 (tid=7799, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:394 in main
+==================
+ThreadSanitizer: reported 1 warnings
+==================
+WARNING: ThreadSanitizer: data race (pid=7800)
+  Write of size 1 at 0x557205757318 by main thread:
+    #0 main /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:394 (code13.out+0x2154)
+
+  Previous read of size 1 at 0x557205757318 by thread T50 (mutexes: write M12):
+    #0 operator() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:70 (code13.out+0x3772)
+    #1 wait<start_wait()::<lambda()> > /usr/include/c++/7/condition_variable:98 (code13.out+0x3772)
+    #2 start_wait() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:70 (code13.out+0x3772)
+    #3 threadfunc_atomic_read_acquire() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:296 (code13.out+0x3772)
+    #4 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #5 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #6 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #7 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #8 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #9 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Location is global 'ready' of size 1 at 0x557205757318 (code13.out+0x000000206318)
+
+  Mutex M12 (0x557205757360) created at:
+    #0 pthread_mutex_lock <null> (libtsan.so.0+0x3faeb)
+    #1 __gthread_mutex_lock /usr/include/x86_64-linux-gnu/c++/7/bits/gthr-default.h:748 (code13.out+0x336b)
+    #2 std::mutex::lock() /usr/include/c++/7/bits/std_mutex.h:103 (code13.out+0x336b)
+    #3 std::unique_lock<std::mutex>::lock() /usr/include/c++/7/bits/std_mutex.h:267 (code13.out+0x336b)
+    #4 std::unique_lock<std::mutex>::unique_lock(std::mutex&) /usr/include/c++/7/bits/std_mutex.h:197 (code13.out+0x336b)
+    #5 start_wait() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:69 (code13.out+0x336b)
+    #6 threadfunc_atomic_weak() /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:317 (code13.out+0x336b)
+    #7 void std::__invoke_impl<void, void (*)()>(std::__invoke_other, void (*&&)()) /usr/include/c++/7/bits/invoke.h:60 (code13.out+0x4729)
+    #8 std::__invoke_result<void (*)()>::type std::__invoke<void (*)()>(void (*&&)()) /usr/include/c++/7/bits/invoke.h:95 (code13.out+0x4729)
+    #9 decltype (__invoke((_S_declval<0ul>)())) std::thread::_Invoker<std::tuple<void (*)()> >::_M_invoke<0ul>(std::_Index_tuple<0ul>) /usr/include/c++/7/thread:234 (code13.out+0x4729)
+    #10 std::thread::_Invoker<std::tuple<void (*)()> >::operator()() /usr/include/c++/7/thread:243 (code13.out+0x4729)
+    #11 std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)()> > >::_M_run() /usr/include/c++/7/thread:186 (code13.out+0x4729)
+    #12 <null> <null> (libstdc++.so.6+0xbd57e)
+
+  Thread T50 (tid=7852, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xbd834)
+    #2 __libc_start_main <null> (libc.so.6+0x21b96)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/lock_and_lockfree/code13.cpp:394 in main
+==================
+ThreadSanitizer: reported 1 warnings

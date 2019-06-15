@@ -1,0 +1,22 @@
+WARNING: ThreadSanitizer: data race (pid=8453)
+  Read of size 4 at 0x56526f32b018 by thread T2:
+    #0 f /home/ubuntu/Downloads/2/Threading-master/counter_example_1_pthread/code01.c:12 (code01_.out+0xb02)
+    #1 <null> <null> (libtsan.so.0+0x296bd)
+
+  Previous write of size 4 at 0x56526f32b018 by thread T1:
+    #0 f /home/ubuntu/Downloads/2/Threading-master/counter_example_1_pthread/code01.c:12 (code01_.out+0xb17)
+    #1 <null> <null> (libtsan.so.0+0x296bd)
+
+  Location is global 'cnt' of size 4 at 0x56526f32b018 (code01_.out+0x000000202018)
+
+  Thread T2 (tid=8456, running) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 main /home/ubuntu/Downloads/2/Threading-master/counter_example_1_pthread/code01.c:21 (code01_.out+0xbec)
+
+  Thread T1 (tid=8455, finished) created by main thread at:
+    #0 pthread_create <null> (libtsan.so.0+0x2bcfe)
+    #1 main /home/ubuntu/Downloads/2/Threading-master/counter_example_1_pthread/code01.c:21 (code01_.out+0xbec)
+
+SUMMARY: ThreadSanitizer: data race /home/ubuntu/Downloads/2/Threading-master/counter_example_1_pthread/code01.c:12 in f
+==================
+ThreadSanitizer: reported 1 warnings
