@@ -1,0 +1,6 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(437,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+  lameWrapper.cpp
+  main.cpp
+  parsewav.cpp
+  Generating Code...
+  wav2mp3.vcxproj -> D:\Dev\wavTomp3\project\Release\wav2mp3.exe

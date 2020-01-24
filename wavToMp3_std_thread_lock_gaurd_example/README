@@ -1,0 +1,22 @@
+                   wav2mp3 1.xx
+               Wav to mp3 converter
+                   Oct 06 2019
+			  Developed by: Khuram Ali
+
+============================================================================
+
+Visual Studio solution and project files are available. 
+Also pre-build binaries located in Release folder.
+Linked statically with LAME. Using std::thread, there is no need to link with pthread_win.
+tested with MSVC 16.3.2 with c++17 on windows 10. 
+No other library used.
+
+============================================================================
+
+Make file is available for building on Linux.
+Also pre-build binaries located in Release folder.
+Linked statically with LAME. using std::thread. (we still need to link with pthread)
+tested with gcc 9.1 with c++17 on Ubuntu 18.04. 
+No other library used.
+
+============================================================================
